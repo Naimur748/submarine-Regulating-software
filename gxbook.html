@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gx book</title>
+    <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+</head>
+<body>
+
+    <style>
+        *{
+            /* outline: 1px solid red; */
+        }
+          body,html {
+            box-sizing: border-box;
+           font-family: 'AdorshoLipi', Arial, sans-serif !important;
+           background-color:#596FB7;
+        }
+
+        .maiContainer{
+            margin-top: 90px;
+            position: absolute;
+        }
+       
+
+        /* this first div are related problem horizontal navigation bar div */
+         
+          .first{
+            margin-left: 600px;
+            width: 400px;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0px 0px 18px 7px rgba(0,0,0,0.1);
+            background-color:  bisque;
+            text-align: center;
+            font-size: 20px;
+          
+           
+           
+        }
+
+        
+        textarea {
+        width: 350px;
+        height: 100px;
+        border: none;
+        min-width: 350px;
+        padding: 15px;
+        font-size: 15px;
+        background-color:  bisque;
+        position: relative;
+      }
+      
+    
+    
+    .items {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            background-color:  bisque;
+            font-size: 25px;
+            width: 1200px;
+            position: relative;
+            justify-content: space-between;
+            height: 200px;
+            border-radius: 15px;
+            margin-left: 200px;
+            margin-top: 50px;
+            box-shadow: 0px 0px 18px 7px rgba(0,0,0,0.1);
+        }
+
+        .items span {
+            cursor: pointer;
+            float: right;
+            font-weight: bold;
+        }
+       
+        .gxContainer{
+            display: block;
+            text-align: center;
+            
+        }
+        .wefContainer{
+            display: block;
+            text-align: center;
+        }
+        .gxContainer>:first-child{
+            border-bottom: 2px solid black;
+        }
+
+        .wefContainer>:first-child{
+            border-bottom: 2px solid black;
+        }
+        .editb{
+            height: 40px;
+            background-color: cadetblue;
+            width: 69px;
+            text-align: center;
+            display: block;
+            border-radius: 10px;
+        }
+        .editb:hover{
+            color: chartreuse;
+            background-color: #596FB7;
+
+        }
+        #editModal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 5;
+        }
+        .edpr{
+          width: 70px;
+        }
+        .edpr :nth-child(2){
+           display: block;
+           height: 20px;
+           margin-top: 170px;
+           margin-right: 40px;
+           width: 70px;
+           height: 30px;
+           text-transform: uppercase;
+           text-align: center;
+           font-size: 20px;
+           border-radius: 10px;
+
+           
+        }
+        .allbtnclick{
+            width: 1100px;
+            background-color: brown;
+            height: 80px;
+            z-index: 2;
+            margin-top: 20px;
+            margin-left: 260px;
+        
+
+        }
+        .allbtnclick>input{
+            width: 450px;
+            height: 50px;
+            margin-top: 12px;
+            border-radius: 10px;
+            margin-left: 20px;
+            border: none;
+            font-size: 20px;
+        }
+    .allbtnclick>input:hover{
+            color: black;
+            background-color:#AAD7D9;
+            border: 3px solid #212A3E ;
+        }
+        .allbtnclick>button{
+            width: 300px;
+            height: 30px;
+            margin-left: 300px;
+            height: 40px;text-align: center;
+            font-size: 20px;
+            border-radius: 10px;
+
+        }.allbtnclick>button:hover{
+            color: aqua;
+            background-color:midnightblue
+        }
+        .gxtext{
+            width: 350px;
+        height: 180px;
+        border: none;
+        min-width: 450px;
+        padding: 15px;
+        font-size: 15px;
+        background-color:  bisque;
+        position: relative;
+        }
+        .onr{
+            font-size: 20px;
+        }
+       .section>input{
+            width: 200px;
+            height: 23px;
+            border-radius: 7px;
+        }
+        .section>label{
+            text-transform: uppercase;
+        }
+        #editModal>h2{
+            margin-left: 100px;
+            margin-top: 0px;
+        }
+        #editModal>button{
+            margin-left: 130px;
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+        #editModal>button:hover{
+            background-color: cadetblue;
+            color: chartreuse;
+
+        }
+        .section>select{
+            width: 100px;
+            height: 20px;
+            margin-left: 7px;
+        }
+        #close{
+            margin-left: 400px;
+            margin-top: 0px;
+            cursor: pointer;
+            width: 100xp;
+            height: 50px;
+            
+            
+        }
+        .printItems{
+            width: 400px;
+            height: 400px;
+        }
+
+            
+        
+
+       
+        
+    </style> 
+
+        
+<special-header></special-header>
+
+
+<script src="./headerfotermanager.js"></script>
+
+
+
+<div class="maiContainer">
+
+    <div class="first">
+        <div>বাংলাদেশ নৌবাহিনী</div>
+        <div>বাঃ নৌঃ জাঃ শেখ হাসিনা</div>
+        <div>জেন ফর্ম বুক</div>
+        <div>তারিখঃ ১২/০৭/২৩</div>
+    </div>
+
+
+
+      <div class="allbtnclick">  
+                <input type="search" id="searchInput" oninput="searchObjects()" placeholder="Find your GX her......">
+                <button id="openPopupButton">CREATE GENFORM</button>
+       </div>
+
+
+
+
+    <div id="editModal">
+        <!-- Modal content -->
+        <span id="close">&#10006;</span>
+        <h2>CREATE GX</h2>
+        <!-- Add your input fields here -->
+        <div class="section">
+            <label for="input2">Gx Number:</label>
+            <br>
+            <input type="text" id="input1">
+        </div>
+    
+    
+        <div class="section">
+            <label for="input2">Gx Date:</label>
+            <br>
+            <input type="text" id="input2">
+        </div>
+    
+    
+        <div class="section">
+            <label for="input2">O.No Name Rank:</label>
+            <br>
+            <textarea name="" id="input3" cols="30" rows="10"></textarea>
+        </div>
+    
+        
+    
+        <div class="section">
+            <label for="gxdate">WEF Date:</label>
+            <br>
+            <input type="text" id="gxdate">
+        </div>
+    
+        <div class="section">
+            <label for="gxtime">Report Time:</label>
+            <br>
+            <select id="gxtime">
+                <option value="সকাল">সকাল</option>
+                <option value="বিকাল">বিকাল</option>
+            </select>
+        </div>
+
+        <div class="section">
+            <label for="selectOption">Select an option:</label>
+  <select name="" id="selectOption" onchange="updateTextArea()">
+    <option value="TO DRAF">TO DRAF</option>
+    <option value="EX DRAF">EX DRAF</option>
+    <option value="EX LEAVE">EX LEAVE</option>
+    <option value="TO LEAVE">TO LEAVE</option>
+    <option value="TO RL">TO RL</option>
+    <option value="TO TY">TO TY</option>
+    <option value="EX TY">EX TY</option>
+    <option value="TO ADMIT">TO ADMIT</option>
+    <option value="EX ADMIT">EX ADMIT</option>
+    <option value="TO RUN">TO RUN</option>
+    <option value="EX RUN">EX RUN</option>
+    <option value="TO MLR">TO MLR</option>
+    <option value="EX MLR">EX MLR</option>
+    <option value="TO VICT">TO VICT</option>
+    <option value="EX VICT">EX VICT</option>
+  </select>
+
+  
+        </div>
+
+
+        <div class="section">
+            <label for="gxtext">Write your gx:</label><br>
+            <textarea id="gxtext" cols="30" rows="10"></textarea>
+        </div>
+    
+    
+        <!-- <button onclick="saveData()">Save Data</button> -->
+    
+        <button id="saveChangesButton" onclick="saveChanges()" style="display: none;">Save </button>
+        <button id="saveButton" style="display: none;">Save </button>
+
+    </div>
+
+
+    <div class="main"></div>
+
+    <div class="parentDiv">
+        <!-- Another div with class "items" -->
+        <div class="items">
+            <!-- ... -->
+        </div>
+    </div>
+
+
+
+
+</div>
+
+    <script>
+//    document.getElementById('printButton').addEventListener('click', function() {
+//     // Assuming you have a textarea with ID 'myTextarea' directly within the 'content' div
+//     var textareaContent = document.getElementById('myTextarea').value;
+
+//     // Get the outer HTML content of the 'content' div (excluding textarea)
+//     var contentOuterHTML = document.getElementById('content').cloneNode(true);  // Clone the 'content' div
+//     var textareaClone = contentOuterHTML.querySelector('#myTextarea');
+    
+//     // Remove the textarea from the clone if it exists
+//     if (textareaClone) {
+//         textareaClone.remove();
+//     }
+
+//     // Combine the outer HTML content with the textarea content
+//     var divContent = `${contentOuterHTML.innerHTML} <p>Textarea Content:</p>
+//     <div class="head1"></div>
+//     <div class="textarea">${textareaContent}</div>`;
+
+      
+
+//     // Display the content in the popup
+//     document.getElementById('popupContent').innerHTML = divContent;
+
+//     // Show the popup
+//     document.getElementById('popup').style.display = 'block';
+// });
+
+
+//         function printContent() {
+//             // Print the content of the specific div
+//             var popupContent = document.getElementById('popupContent').outerHTML;
+//             var printWindow = window.open('', '_blank');
+//             printWindow.document.write('<html><head><title>Printed Content</title></head><body>');
+//             printWindow.document.write(popupContent);
+//             printWindow.document.write('</body></html>');
+//             printWindow.document.close();
+            
+//             // Trigger the print dialog
+//             printWindow.print();
+
+//             // Close the print window
+//             printWindow.close();
+
+//             // Close the popup
+//             closePopup();
+//         }
+
+//         function closePopup() {
+//             // Close the popup
+//             document.getElementById('popup').style.display = 'none';
+//         }
+
+
+//           // Function to save text to localStorage
+//           function saveText() {
+//             var textValue = document.getElementById('myTextarea').value;
+//             localStorage.setItem('savedText', textValue);
+//             alert('Text saved to local storage!');
+//         }
+
+//         // Function to load text from localStorage
+//         function loadText() {
+//             var savedText = localStorage.getItem('savedText');
+//             if (savedText) {
+//                 document.getElementById('myTextarea').value = savedText;
+//             }
+//         }
+
+//         // Load saved text on page load
+//         window.onload = loadText;
+
+
+
+
+
+
+
+
+document.getElementById('openPopupButton').addEventListener('click', function () {
+    openPopup();
+});
+
+// Function to open the popup
+function openPopup() {
+    // Display the modal
+    document.getElementById("editModal").style.display = "block";
+    document.getElementById("saveButton").style.display = "block";
+
+
+    // Clear existing values in the popup fields
+    document.getElementById("input1").value = '';
+    document.getElementById("input2").value = '';
+    document.getElementById("input3").value = '';
+    document.getElementById("gxtime").value = '';
+    document.getElementById("gxdate").value = '';
+    document.getElementById("gxtext").value = '';
+
+    // Save changes when the "Save" button in the modal is clicked
+    document.getElementById("saveButton").onclick = function () {
+        
+        saveData();
+
+    };
+}
+
+
+
+
+// Uncomment the event listener for the "Save Changes" button
+document.getElementById("saveChangesButton").onclick = function () {
+    saveChanges();
+};
+
+
+   
+
+// Function to close the popup
+function closePopup() {
+    // Close the modal
+    document.getElementById("editModal").style.display = "none";
+
+
+
+}
+
+function saveData() {
+            var input1Value = document.getElementById("input1").value;
+            var input2Value = document.getElementById("input2").value;
+            var input3Value = document.getElementById("input3").value;
+            
+            var input4Value = document.getElementById("gxtime").value;
+            var input5Value = document.getElementById("gxdate").value;
+            var input6Value = document.getElementById("gxtext").value;
+
+            // Retrieve existing table data from local storage
+            var existingTableData = JSON.parse(localStorage.getItem("gxData")) || [];
+
+            // Add new row data to the beginning of the array
+            existingTableData.unshift({
+                gxNo: input1Value,
+                gxDate: input2Value,
+                onr: input3Value,
+                gxtime: input4Value,
+                wefdate: input5Value,
+                gxtext: input6Value
+            });
+
+            // Save the updated array back to local storage
+            localStorage.setItem("gxData", JSON.stringify(existingTableData));     
+
+
+        closePopup()
+
+            // Display the saved data
+            displayData();
+            
+        }
+
+
+
+
+
+
+
+
+        function updateTextArea() {
+      // Get the selected option
+      const selectElement = document.getElementById('selectOption');
+      const selectedOption = selectElement.value;
+
+      // Get the text area element
+      const textAreaElement = document.getElementById('gxtext');
+
+      // Update the text area based on the selected option
+      switch (selectedOption) {
+        case 'TO DRAF':
+          textAreaElement.value = ' ড্রাফটিং আথরিটি পত্র নং ২৩,০২,২৬২৬,১২৮ তাং  ইং মোতাবেক বাঃ নৌঃ জাঃ বদলি করা হইল। ০২। পেকুয়া হইতে চট্টগ্রাম / ঢাকা/ খুলনা পর্য়ন্ত বে-সরকারি য়ানবাহনে ভ্রমন করিল। ০৩। আগ্রিম ভাতা প্রদান করা হইল। ০৪। ০২ দিনের ভ্রমন সময় প্রাপ্য।  ';
+          break;
+        case 'EX DRAF':
+          textAreaElement.value = ' বা নৌ জা - হইতে বদলি আসিল। বা নৌ জা ে- নৌ নং  - তাং - ইং মোতাবেক।';
+          break;
+        case 'EX LEAVE':
+          textAreaElement.value = 'ছুটি শেষে যথসময়ে হাজির হইল নৌ নং  - তাং -  ইং উল্লেখ্য। ০২। সঃ সংখ্যাঃ - রসদ ভাতা মঞ্জুর করা হইল।';
+          break;
+          case 'TO LEAVE':
+          textAreaElement.value = '২০২৪ সালের ৩০ ‍দিনের সুবিধাজনক ছুটি ও ০৬ দিনের য়াতাযাত সময় সহ ভ্রমন পত্র ব্যাতিত মঞ্জুর করা হইল। রেলস্টেসন - । ০২।সঃ সংখ্যা - - এর রসদ ভাতা বাতিল করা হইল।';
+          break;
+          case 'TO RL':
+          textAreaElement.value = '১লা জুলাই ২০২১ সাল হইতে ৩০ জুন ২০২৪ সাল চক্রের ১৫ ‍দিনের বিনোদন মূলক ছুটি ও০৬দিনের য়াতায়ত সময় সহ ভ্রমন পত্র ব্যাতিত মঞ্জুর করা হইল। রেলস্টেসন -। ০২। জেএসআই ৮/৮০ এবং ১/১৬ মোতাবেক বিনোদন মূলক ভাতা প্রাপ্য। ০৩। গোত বিনোদন মূলক ছুট  ভোগের তাং --- ইং। ০৪। রসদ ভাতা বাতিল করা হইল।   ';
+          break;
+          case 'TO TY':
+          textAreaElement.value = 'কমান্ডার সাবমেরিন পত্র নং ------ তাং --- ইং /  ড্রাফটিং আথরিটি পত্র নং ২৩,০২,২৬২৬,১২৮ তাং  ইং মোতাবেক বাঃ নৌঃ জাঃ  - অস্থায়ী বদলি করা হইল। ০২। পেকুয়া হইতে চট্টগ্রাম / ঢাকা/ খুলনা পর্য়ন্ত বে-সরকারি য়ানবাহনে ভ্রমন করিল। ০৩। আগ্রিম ভাতা প্রদান করা হইল। ০৪। ০২ দিনের ভ্রমন সময় প্রাপ্য।';
+          break;
+          case 'EX TY':
+          textAreaElement.value = 'আস্থায়ী কর্তব্য শেষে বা নৌ জা - হইতে হাজির হইল।  বা নৌ জা - নৌ নং - তাং - ইং মোতাবেক। ০২। সঃ সংখ্যাঃ - রসদ ভাতা মঞ্জুর করা হইল।';
+          break;
+          case 'TO ADMIT':
+          textAreaElement.value = ' পতেঙ্গা / সিএমএইস বার্তা ডি টি জি -- মাস  সাল মোতাবেক চিকিৎসার জন্য ভর্তি হইল। ০২। রসদ ভাতা বাতিল করা হইল।';
+          break;
+          case 'EX ADMIT':
+          textAreaElement.value = 'চিকিৎসা শেষে বা নৌ জা পতেঙ্গা / সিএমএইস হইতে হাজির হইল। পতেঙ্গা / সিএমএইস বার্তা ডি টি জি -- মাস  সাল মোতাবেক। ';
+          break;
+          case 'TO RUN':
+          textAreaElement.value = ' আনুপস্থিত চিহ্নত করা হইল';
+          break;
+          case 'EX RUN':
+          textAreaElement.value = 'আনুপস্থিত হইতে হাজির হইল';
+          break;
+          case 'TO MLR':
+          textAreaElement.value = 'রসদ ভাতা বাতিল করা হইল';
+          break;
+          case 'EX MLR':
+          textAreaElement.value = 'রসদ ভাতা মঞ্জুর করা হইল।';
+          break;
+          
+        // Add cases for other options as needed
+        default:
+          textAreaElement.value = 'Unknown option selected. Add your custom text here.';
+      }
+
+
+
+      
+
+      
+    }
+
+
+
+
+
+
+
+
+let displayData = () => {
+            var userData = JSON.parse(localStorage.getItem("gxData")) || [];
+            var main = document.querySelector('.main');
+            let finalData = '';
+
+            userData.forEach((element, i) => {
+                finalData += `<div class="items">
+                    <div class="edpr">
+                    <span onclick='editButtonClick(${i})' class='editb'>&#x270E;</span>
+                    <button onclick="printContainer(${i})">Print</button>
+                    </div>
+                <div class="gxContainer"> 
+                    <div>${element.gxNo}</div>
+                    <div>${element.gxDate}</div>
+                </div>
+                  
+                    <textarea class="onr">${element.onr}</textarea>
+
+                <div class="wefContainer">  
+                    <div>${element.gxtime}</div>
+                    <div>${element.wefdate}</div>
+                    </div>
+                   
+
+                    
+                    <textarea class="gxtext">${element.gxtext}</textarea>
+
+                    
+ </div> 
+                
+                `;
+            });
+
+            main.innerHTML = finalData;
+        }
+
+        // Call displayData to show existing data on page load
+        displayData();
+
+        // // Function to remove data by index
+        // function removeData(index) {
+        //     var userData = JSON.parse(localStorage.getItem("gxData")) || [];
+        //     userData.splice(index, 1);
+        //     localStorage.setItem("gxData", JSON.stringify(userData));
+        //     displayData();
+        // }
+
+     
+
+// Function to handle edit button click
+function editButtonClick(index) {
+
+    document.getElementById("saveChangesButton").style.display = "block";
+    // Retrieve all data from local storage
+    var userData = JSON.parse(localStorage.getItem("gxData")) || [];
+
+    // If there is data at the specified index
+    if (userData[index]) {
+        // Populate form fields with values for editing
+        document.getElementById("input1").value = userData[index].gxNo;
+        document.getElementById("input2").value = userData[index].gxDate;
+        document.getElementById("input3").value = userData[index].onr;
+        document.getElementById("gxtime").value = userData[index].gxtime;
+        document.getElementById("gxdate").value = userData[index].wefdate;
+        document.getElementById("gxtext").value = userData[index].gxtext;
+
+        // Display the modal
+        document.getElementById("editModal").style.display = "block";
+
+        // Save changes when the "Save Changes" button in the modal is clicked
+        document.getElementById("saveChangesButton").onclick = function () {
+            saveChanges(index);
+        };
+    } else {
+        alert("Data not found at index " + index);
+    }
+
+    
+    document.getElementById("close").onclick = function () {
+     document.getElementById("editModal").style.display = "none";
+   
+};
+}
+
+
+
+// Function to save changes
+function saveChanges(index) {
+    // Retrieve all data from local storage
+    var userData = JSON.parse(localStorage.getItem("gxData")) || [];
+
+    // If there is data at the specified index
+    if (userData[index]) {
+        // Update data with new values from the modal
+        userData[index].gxNo = document.getElementById("input1").value;
+        userData[index].gxDate = document.getElementById("input2").value;
+        userData[index].onr = document.getElementById("input3").value;
+        userData[index].gxtime = document.getElementById("gxtime").value;
+        userData[index].wefdate = document.getElementById("gxdate").value;
+        userData[index].gxtext = document.getElementById("gxtext").value;
+
+        // Save the updated data back to local storage
+        localStorage.setItem("gxData", JSON.stringify(userData));
+
+        // Close the modal
+        document.getElementById("editModal").style.display = "none";
+
+        // Update the displayed data
+        displayData();
+    } else {
+        alert("Data not found at index " + index);
+    }
+}
+
+       
+closePopup()
+
+
+function searchObjects() {
+    var searchInput = document.getElementById('searchInput').value.toLowerCase();
+    var mainContainer = document.querySelector('.main');
+
+    // Clear previous search results
+    mainContainer.innerHTML = '';
+
+    // Retrieve data from local storage
+    var storedData = JSON.parse(localStorage.getItem('gxData')) || [];
+
+    // Filter objects based on any property and limit to elements inside the 'main' class
+    var searchResults = storedData.filter(function (obj) {
+        for (var key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                // Check if the property value includes the search input
+                if (obj[key].toString().toLowerCase().includes(searchInput)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    });
+
+    // Display search results
+    searchResults.forEach(function (result) {
+        var itemsContainer = document.createElement('div');
+        itemsContainer.classList.add('items');
+
+        itemsContainer.innerHTML = `
+            <span onclick='editButtonClick(${searchResults.indexOf(result)})' class='editb'>&#x270E;</span>
+            <div class="gxContainer"> 
+                <div>${result.gxNo}</div>
+                <div>${result.gxDate}</div>
+            </div>
+            <textarea>${result.onr}</textarea>
+            <div class="wefContainer">  
+                <div>${result.wefdate}</div>
+                <div>${result.gxtime}</div>
+            </div>
+            <textarea>${result.gxtext}</textarea>
+        `;
+
+        mainContainer.appendChild(itemsContainer);
+    });
+}
+
+
+
+
+
+
+
+
+function printContainer(index) {
+    // Retrieve data from local storage
+    var gxData = JSON.parse(localStorage.getItem('gxData')) || [];
+
+    // Open a new window and write the content
+    var printWindow = window.open('', '_blank');
+    printWindow.document.write('<html><head><title>Printed Content</title></head><body>');
+
+        // Style the printed content
+    printWindow.document.write('<style>');
+    printWindow.document.write('body { font-family: Arial, sans-serif; }');
+    printWindow.document.write('.items { border: 1px solid #ccc; padding: 10px; margin: 10px 0; display: flex; background-color: bisque; font-size: 14px; width: 80%; }');
+    printWindow.document.write('.gxContainer, .wefContainer { margin-right: 20px; }');
+    printWindow.document.write('</style>');
+
+    printWindow.document.write('</head><body>');
+
+
+
+
+    // Check if the index is valid
+    if (index >= 0 && index < gxData.length) {
+        var element = gxData[index];
+
+        printWindow.document.write('<div class="printItems">');
+        printWindow.document.write('<div class="gxContainer"><div>' + element.gxNo + '</div><div>' + element.gxDate + '</div></div>');
+        printWindow.document.write('<div>' + element.onr + '</div>');
+        printWindow.document.write('<div class="wefContainer"><div>' + element.gxtime + '</div><div>' +  element.wefdate + '</div></div>');
+        printWindow.document.write('<div>' + element.gxtext + '</div>');
+        printWindow.document.write('</div>');
+    } else {
+        // Handle invalid index (out of range)
+        printWindow.document.write('<p>Invalid index</p>');
+    }
+
+    printWindow.document.write('</body></html>');
+    printWindow.document.close();
+
+    // Trigger the print dialog
+    printWindow.print();
+
+    // Close the print window
+    printWindow.close();
+}
+
+
+
+
+
+
+
+
+
+
+        
+    </script>
+      
+</body>
+</html>

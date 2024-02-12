@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> -->
+<body>
+
+    <style>
+        *{
+            
+            /* outline: 1px solid red; */
+            /* box-shadow: 0px 0px 18px 7px rgba(0,0,0,0.1); */ */
+            
+        }
+        html,body{
+          background-color: #739072;
+        }
+        .first{
+          width: 20px;
+          height: 20px;
+          background-color: blueviolet;
+          
+        }
+        .second{
+          width: 20px;
+          height: 20px;
+          background-color: brown;
+          
+        }
+        canvas{
+            background-color: #1D1F20; 
+            position: absolute;
+        }
+        
+        .third{
+          width: 300px;
+          position: absolute;
+          margin-top: 120px;
+          margin-left: 300px;
+          height: 360px;
+          box-shadow: 0px 0px 18px 7px rgba(0,0,0,0.1);
+          background-color: #9BBEC8;
+          border-radius: 7px;
+        }
+        .secondchild{
+          width: 100%;
+          margin-top: 20px;
+          /* display: flex; */
+        }
+        .section2{
+          width: 33%;
+          position: relative;
+          float: left;
+          text-align: center;
+          text-transform: uppercase;
+          height: 30px;
+          font-size: 20px;
+          margin-top: ;
+
+
+        }
+        .section{
+          text-align: center;
+          width: 300px;
+          justify-content: center;
+          position: relative;
+          text-transform: uppercase;
+          height: 20px;
+          font-weight: bolder;
+          font-size: 20px;
+          position: relative;
+          margin-top: 0px;
+
+        }
+        .tabledive{
+          width: 750px;
+          margin-top: 150px;
+          margin-left: 700px;
+          height:230px;
+          position: absolute;
+          padding: 5px;
+          background-color: #A6CF98;
+          box-shadow: 0px 0px 18px 7px rgba(0,0,0,0.1);
+          border-radius: 7px;
+          
+        }
+        table{
+          width: 100%;
+        }
+        th{
+          writing-mode: vertical-lr;
+          text-transform: uppercase;
+          transform: rotate(180deg);
+        }
+        .firstcol{
+          width:26%;
+          text-transform: uppercase;
+          text-align: center;
+          position: relative;
+          font-size: 15px;
+          font-weight: bolder;
+        }
+        tr{
+          height: 35px;
+        }
+        table,tr,th,td{
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        .chart-container{
+          display: flex;
+          width: 900px;
+          margin-left: 260px;
+          position: relative;
+          height: 400px;
+      
+          
+        }
+        .shn{
+          width: 600px;
+          position: absolute;
+         text-align: center;
+          margin-left: 620px;
+          margin-top: 60px;
+          color: white;
+          position: absolute;
+          font-size: 27px;
+          text-transform: uppercase;
+        
+        }
+        .com{
+          width: 600px;
+          position: relative;
+          float: right;
+          margin-top: 60px;
+          font-size: 27px;
+          text-transform: uppercase;
+          text-align: center;
+          color: white;
+          /* margin-right: 10px; */
+        }
+        .shn>div:nth-child(2){
+          margin-bottom: 17px;
+        }
+        .com>div:nth-child(2){
+          margin-bottom: 17px;
+        }
+        .allcountn td:not(:first-child){
+          font-size: 20px;
+          font-weight: bold;
+        }
+      
+
+        </style>
+
+
+<special-header></special-header>
+    <script src="./headerfotermanager.js"></script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> -->
+
+<div class="chart-container">
+
+  <div class="com">
+    <div>B.N.S sheikh hasina </div>
+    <div>Com Sub Ships company  Record</div>
+    <canvas id="myChart" style="width:100%;max-width:600px"></canvas> 
+  
+  </div>
+  
+  
+  <div class="shn">
+    <div>B.N.S sheikh hasina </div>
+    <div>Ships company Record</div>
+    <canvas id="chartId" aria-label="chart" style="width:100%;max-width:600px"></canvas>
+  </div>
+
+</div>
+
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script> 
+
+ <div class="third">
+
+  <div class="firstchild">
+    <div class="section">bangladesh navy</div>
+    <div class="section">b.n.s sheikh hsins</div>
+    <div class="section">Live state</div>
+  </div>
+
+    <div class="secondchild">
+      <div class="section2">borne</div>
+      <div class="section2">=</div>
+      <div  class="section2" id="totalRowCount"></div>
+      <div class="section2">present</div>
+      <div class="section2">=</div>
+      <div class="section2" id="presentCount"></div>
+      <div class="section2">away</div>
+      <div class="section2">=</div>
+      <div class="section2" id="awayCount"></div>
+      <div class="section2">leave</div>
+      <div class="section2">=</div>
+      <div class="section2" id="leaveCount"></div>
+      <div class="section2">Ty</div>
+      <div class="section2">=</div>
+      <div class="section2" id="tyCount"></div>
+      <div class="section2">admit</div>
+      <div class="section2">=</div>
+      <div class="section2" id="admitCount"></div>
+      <div class="section2">Run</div>
+      <div class="section2">=</div>
+      <div class="section2" id="runCount"></div>
+      <div class="section2">vict</div>
+      <div class="section2">=</div>
+      <div class="section2" id="victCount" ></div>
+      <div class="section2">mlr</div>
+      <div class="section2">=</div>
+      <div class="section2" id="mlrCount"></div>
+      
+    </div>
+  
+</div>
+
+<div class="tabledive">
+  <table >
+    <tr>
+      <td  class="firstcol">division</td>
+      <th>mcpo</th>
+      <th>scpo</th>
+      <th>cpo</th>
+      <th>po</th>
+      <th>ldg</th>
+      <th>ab</th>
+      <th>od</th>
+      <th>borne</th>
+      <th>leave</th>
+      <th>ty duty</th>
+      
+      <th>admit</th>
+      <th>ab/run</th>
+      <th>away</th>
+      <th>present</th>
+      <th>vict</th>
+      <th>mlr</th>
+    </tr>
+
+      
+    
+    <tr style="text-align: center;" class="allcountn">
+      <td class="firstcol"> sheikh hasina</td>
+      <td id="mala"></td>
+      <td id="gola"></td>
+      <td id="toym"></td>
+      <td id="dal"></td>
+      <td id="mfuk"></td>
+      <td id="mung"></td>
+      <td id="dudfi"></td>
+      <td id="kipta"></td>
+      <td id="wnno"></td>
+      <td id="sikto"></td>
+      <td id="balko"></td>
+      <td id="manko"></td>
+      <td id="rinno"></td>
+      <td id="rikta"></td>
+      <td id="bonkw"></td>
+      <td id="tibbo"></td>
+
+    </tr>
+
+    <tr>
+      <td class="firstcol">comsub organization</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td class="firstcol">ty attachment</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td class="firstcol">total</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+  </table>
+</div>
+
+<div id="totalMcpo"></div>
+
+
+<script>
+
+//  all data for bar char only all variable use 
+// eta ekhan theke sorano jabe na
+        const RowCount = localStorage.getItem('totalRowCount') || 0;
+        const presentCoun = localStorage.getItem('presentCount') || 0;
+        const awayCoun = localStorage.getItem('awayCount') || 0;
+        const leave = localStorage.getItem('leaveCount') || 0;
+        const ty = localStorage.getItem('tyCount') || 0;
+        const admit = localStorage.getItem('admitCount') || 0;
+        const run = localStorage.getItem('runCount') || 0;
+        const vict = localStorage.getItem('victCount') || 0;
+        const mlr = localStorage.getItem('mlrCount') || 0;
+
+
+        const WordCounts = JSON.parse(localStorage.getItem('wordCounts')) || {};
+
+ 
+     
+       
+       
+
+        //all data for combine  state
+        const vbi = localStorage.getItem('totalRowCount') || 0;
+        const kaki = localStorage.getItem('presentCount') || 0;
+        const kaka = localStorage.getItem('awayCount') || 0;
+        const nana = localStorage.getItem('leaveCount') || 0;
+        const fupu = localStorage.getItem('tyCount') || 0;
+        const khalu = localStorage.getItem('admitCount') || 0;
+        const fiku = localStorage.getItem('runCount') || 0;
+        const dinu = localStorage.getItem('victCount') || 0;
+        const mamku = localStorage.getItem('mlrCount') || 0;
+
+        // Update the content of the corresponding td elements
+        document.getElementById('kipta').textContent = vbi;
+        document.getElementById('rikta').textContent = kaki;
+        document.getElementById('rinno').textContent = kaka;
+        document.getElementById('wnno').textContent = nana;
+        document.getElementById('sikto').textContent = fupu;
+        document.getElementById('balko').textContent = khalu;
+        document.getElementById('manko').textContent = fiku;
+        document.getElementById('bonkw').textContent = dinu;
+        document.getElementById('tibbo').textContent = mamku;
+  
+
+
+
+
+
+
+
+
+const xValues = ["BORNE", "PRESENT", "AWAY", "LEAVE", "TY", "ADMIT","RUN","MLR","VICT"];
+const yValues = [RowCount, presentCoun, awayCoun,leave,ty,admit,run,mlr,vict,];
+const barColors = ["red", "green","blue","orange","brown"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues,
+      borderWidth:1,
+      barPercentage: 0.6,
+      
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "World Wine Production 2018"
+    }
+  }
+});
+
+
+var chrt = document.getElementById("chartId").getContext("2d");
+      var chartId = new Chart(chrt, {
+         type: 'bar',
+         data: {
+            labels: ["BORNE", "PRESENT", "AWAY", "LEAVE", "TY", "ADMIT","RUN","MLR","VICT"],
+            datasets: [{
+               label: "online tutorial subjects",
+               data: [RowCount, presentCoun, awayCoun,leave,ty,admit,run,mlr,vict,],
+               backgroundColor: "#F11A7B",
+               borderColor: "#5C8374",
+               barPercentage: 0.6,
+               hoverBackgroundColor: "#33BBC5",
+            }],
+         },
+         options: {
+            responsive: false,
+         },
+      });
+
+  
+
+
+    
+ 
+  
+        
+
+
+
+
+      // state page count retrive local storage
+
+  // Retrieve counts from local storage
+  const storedWordCounts = JSON.parse(localStorage.getItem('wordCounts')) || {};
+        const totalRowCount = localStorage.getItem('totalRowCount') || 0;
+
+        // Display counts in corresponding div elements
+        Object.keys(storedWordCounts).forEach(word => {
+            const countDiv = document.getElementById(word + 'Count');
+            countDiv.textContent = ` ${storedWordCounts[word]} `;
+        });
+
+        // Display total row count
+        const totalRowCountDiv = document.getElementById('totalRowCount');
+        totalRowCountDiv.textContent = ` ${totalRowCount}`;
+
+
+
+        const presentCount = localStorage.getItem('presentCount') || 0;
+        const awayCount = localStorage.getItem('awayCount') || 0;
+
+
+        document.getElementById('presentCount').textContent = ` ${presentCount} `;
+        document.getElementById('awayCount').textContent = ` ${awayCount}`;
+        
+        document.getElementById('leaveCount').textContent =  leave;
+        document.getElementById('tyCount').textContent = ty;
+        document.getElementById('admitCount').textContent = admit;
+        document.getElementById('runCount').textContent = run;
+        document.getElementById('victCount').textContent = vict;
+        document.getElementById('mlrCount').textContent = mlr;
+
+
+        
+        
+        
+
+
+
+
+
+
+        //shn and comsub state board 
+
+
+        const dim = localStorage.getItem('totalMcpo') || 0;
+        const fun = localStorage.getItem('totalScpo') || 0;
+        const gom = localStorage.getItem('totalCpo') || 0;
+        const rew = localStorage.getItem('totalPo') || 0;
+        const mew = localStorage.getItem('totalLs') || 0;
+        const gow = localStorage.getItem('totalAb') || 0;
+        const bara = localStorage.getItem('totalOd') || 0;
+
+
+        document.getElementById('mala').textContent = dim;
+        document.getElementById('gola').textContent = fun;
+        document.getElementById('toym').textContent = gom;
+        document.getElementById('dal').textContent = rew;
+        document.getElementById('mfuk').textContent = mew;
+        document.getElementById('mung').textContent = gow;
+        document.getElementById('dudfi').textContent = bara; 
+    
+  
+    
+</script>
+
+
+
+    
+  
+       
+</body>
+</html>

@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        *{
+              /* outline: 1px solid red;   */
+        }
+        html,body{
+            background-color: #CE5A67;
+            margin: 0px;
+            padding: 0px;
+        }
+            
+    
+        .maincontainer{
+           
+            display: flex;
+            position: relative;
+            text-transform: uppercase;
+            font-weight: bolder;
+            padding: 20px;
+        }
+        .section{
+            position: relative;
+            margin-top: 5px;
+        }
+        input{
+            width: 300px;
+            height: 35px;
+            border-radius: 10px;
+            margin-top: 0px;
+        }
+        label{
+            height: 30px;
+            font-size: 20px;
+            margin-top: 0px;
+        }
+        input:hover{
+            border:2px solid blue;
+        }
+        select{
+            width: 80px;
+            height: 30px;
+            border-radius: 5px;
+            margin-left: 30px;
+            text-transform: uppercase;
+        }
+       
+        
+        input[type="text"]{
+            font-size: 18px;
+            color:black ;
+        }
+       
+        .secondhead{
+            text-transform: uppercase;
+            text-align: center;
+            margin-left: 0px;
+    
+         
+        }
+        .buttona{
+            text-decoration: none;
+            width: 250px;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 10px;
+            background-color: #4F709C;
+            margin-left: 100px;
+            position: relative;
+            color: black;
+            padding: 10px;
+
+
+        }
+        .end{
+           margin-top: 10px;
+           align-items: center;
+           margin-left: 330px;
+           font-size: 20px;
+           text-transform: uppercase;
+           border-radius: 7px;
+           padding: 5px;
+           width: 150px;
+           margin-bottom: 20px;
+           
+        }
+        .end:hover{
+            background-color: #4F709C;
+            color:black;
+        }
+        .gxinput{
+            margin-top: 5px;
+        }
+        option{
+            text-transform: uppercase;
+        }
+        img{
+            width: 100px;
+        }
+        
+        .second-head{
+            width: 100%;
+            font-size: 30px;
+            margin-top: 10px;
+            margin-left: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bolder;
+        }
+        .thirdhead{
+           margin-left:340px;
+            display: inline-block;
+        }
+       .last{
+        margin-top: 1000px;
+        position: relative;
+        font-size: 40px;
+        text-transform: uppercase;
+        color: #27374D;
+        text-align: center;
+        margin-left: 50px;
+        
+       }
+       .main-container1{
+          position: absolute;
+          margin-top: 50px;
+          margin-left: 400px;
+          width: 760px;
+          border-radius: 20px;
+          background-color: cadetblue;
+          box-shadow: 0px 0px 18px 7px rgba(0,0,0,0.1);
+       }
+       .first-container-1{
+          
+        width: 680px;
+       }
+       .second-container2{
+        width: 470px;
+       }
+       .second-container2>div{
+        margin-top: 10px;
+       }
+       #gxtext{
+        min-width: 350px;
+        min-height: 180px;
+        border-radius: 8px;
+        font-size: 15px;
+
+       }
+
+
+
+        
+
+        
+    </style>
+
+<special-header></special-header>
+
+
+<script src="./headerfotermanager.js"></script>
+
+    
+
+<div class="main-container1">
+
+    
+        <div class="thirdhead">
+            <img src="logo/navy1.png" alt="">
+       </div>
+    
+        <div class="second-head">create your genform <br>
+            b.n.s sheikh hsina
+        </div>
+         
+ 
+
+    <div class="maincontainer">
+
+        <!-- first container -->
+ 
+        <div class="first-container-1">
+        
+         
+         
+      
+
+         <div class="section" style="display: none;">
+            <label ></label>
+            <br>
+            <input type="text" id="input1"> 
+        </div>
+         
+ 
+         <div class="section">
+            <button onclick="searchData()">Search</button>
+             <label for="input2">Official number:</label>
+             <br>
+             <input type="text" id="input2">
+     
+         </div>
+        
+ 
+         <div class="section">
+             <label for="input3">Name:</label>
+             <br>
+             <input type="text" id="input3">
+     
+         </div>
+
+         <div class="section">
+            <label for="input2">Rank</label>
+            <br>
+            <input type="text" id="input4">
+    
+        </div>
+        
+         <div class="section">
+ 
+             <label for="">Select your department:</label>
+             <br>
+             
+         <select name="" id="">
+             <option value="">Seman</option>
+             <option value="">Communication</option>
+             <option value="">Regulating</option>
+             <option value="">Enginearing</option>
+             <option value="">Electrical</option>
+             <option value="">Writer</option>
+             <option value="">Store</option>
+             <option vlue="m">Medical</option>
+             <option value="">Topas</option>
+            </select>
+ 
+         </div>
+         
+ 
+       
+         <div class="section">
+            <label for="gxtime">Report Time:</label>
+           
+            <select id="gxtime">
+                <option value="সকাল">সকাল</option>
+                <option value="বিকাল">বিকাল</option>
+            </select>
+        </div>
+
+
+        <div class="section">
+            <label for="">WEF Date:</label>
+            <br>
+            <input type="text" id=" gxdate">
+
+        </div>
+
+
+
+
+
+        <div class="section">
+            <label for="selectOption"> gx type:</label>
+  <select name="" id="selectOption" onchange="updateTextArea()">
+    <option value="TO DRAF">TO DRAF</option>
+    <option value="EX DRAF">EX DRAF</option>
+    <option value="EX LEAVE">EX LEAVE</option>
+    <option value="TO LEAVE">TO LEAVE</option>
+    <option value="TO RL">TO RL</option>
+    <option value="TO TY">TO TY</option>
+    <option value="EX TY">EX TY</option>
+    <option value="TO ADMIT">TO ADMIT</option>
+    <option value="EX ADMIT">EX ADMIT</option>
+    <option value="TO RUN">TO RUN</option>
+    <option value="EX RUN">EX RUN</option>
+    <option value="TO MLR">TO MLR</option>
+    <option value="EX MLR">EX MLR</option>
+    <option value="TO VICT">TO VICT</option>
+    <option value="EX VICT">EX VICT</option>
+  </select>
+
+  
+        </div>
+
+        <div class="section">
+            <label for="">edit your gx</label><br>
+            <textarea name="" id="gxtext" cols="30" rows="10">
+
+            </textarea>
+        </div>
+
+
+        </div>
+ 
+ 
+ 
+ <!-- second container -->
+ 
+ <div class="second-container2">
+     
+     
+    <div class="section">
+        <label for="input4">Part-ii:</label>
+        <br>
+        <input type="text" id="input5"> 
+    </div>
+    
+     
+ 
+     <div class="section">
+         <label for="input5">gcb:</label>
+         <br>
+         <input type="text" id="input6">
+ 
+     </div>
+    
+ 
+     <div class="section">
+         <label for="input6">id card no:</label>
+         <br>
+         <input type="text" id="input7">
+ 
+     </div>
+    
+    
+     
+ 
+     <div class="section">
+         <label for="">Date of joining ship:</label>
+         <br>
+         <input type="text" placeholder="Enter your ship name" id="input8">
+         
+         <br>
+
+         <label for="input8">Blood group</label>
+         <br>
+        <input type="text" id="input9">
+        <br>
+     <select name="" id="">
+       
+       
+            <option value="">B+(ve)</option>
+            <option value="">B-</option>
+            <option value="">O(ve)</option>
+            <option value="">AB+(ve)</option>
+            <option value="">O-(ve)</option>
+            <option value=""></option>
+            <option value=""></option>
+         
+         
+        </select>
+ 
+     </div>
+ 
+ 
+ 
+     <div class="section">
+         <label for="input9">Mobile number:</label>
+         <br>
+         <input type="text" name="" id="input10">
+       
+ <br>
+         
+     </div>
+   
+    
+     <div class="section">
+         <label for="input10">MLR/VIC:</label>
+         <br>
+         <input type="text"  id="input11">
+ 
+     </div>
+
+     <div class="section">
+        <label for="input11">Remarks:</label>
+        <br>
+        <input type="text"  id="input12">
+
+    </div>
+    
+     
+ 
+ </div>
+ 
+ 
+ 
+     </div>
+
+     <button class="end" onclick="submitDataAndNavigate(); saveData();">
+            submit
+     </button>
+
+</div>
+
+
+<script>
+    function submitDataAndNavigate() {
+
+
+        
+
+
+        // Get data from input fields
+        var inputData = [];
+        for (var i = 1; i <= 12; i++) {
+            inputData.push(document.getElementById("input" + i).value);
+        }
+
+        // Save data to local storage
+        var allData = JSON.parse(localStorage.getItem("allData")) || [];
+        allData.push(inputData);
+        localStorage.setItem("allData", JSON.stringify(allData));
+
+        // Clear input fields
+        for (var i = 1; i <= 12; i++) {
+            document.getElementById("input" + i).value = "";
+        }
+
+        // Navigate to the second page
+        window.location.href = "shnshipscompany.html";
+    }
+
+
+
+
+
+  // Function to save data to local storage
+//   function saveData() {
+//             var input2Value = document.getElementById("input2").value;
+//             var input3Value = document.getElementById("input3").value;
+//             var input4Value = document.getElementById("input4").value;
+//             var input5Value = document.getElementById("gxdate").value;
+//             var input6Value = document.getElementById("gxtime").value;
+//             var input7Value = document.getElementById("gxtext").value;
+
+//             // Retrieve existing table data from local storage
+//             var existingTableData = JSON.parse(localStorage.getItem("gxData")) || [];
+
+//             // Add new row data to the array
+//             existingTableData.push({
+//                 input2: input2Value,
+//                 input3: input3Value,
+//                 input4: input4Value,
+//                 gxdate: input5Value,
+//                 gxtime: input6Value,
+//                 gxtext: input7Value
+//             });
+
+//             // Save the updated array back to local storage
+//             localStorage.setItem("gxData", JSON.stringify(existingTableData));
+
+//             // Optionally, you can reload the table or perform any other actions here
+//             // loadTable();
+//         }
+
+
+
+  
+  // Function to load data from local storage and populate the table
+//   function loadTable() {
+//     var tableBody = document.getElementById("tableBody");
+//     tableBody.innerHTML = ""; // Clear existing rows
+
+//     var tableData = JSON.parse(localStorage.getItem("gxData")) || [];
+
+//     // Populate the table with data
+//     tableData.forEach(function(row) {
+//       var newRow = tableBody.insertRow();
+//       newRow.insertCell(0).innerHTML = row[0]; // Accessing array elements by index
+//       newRow.insertCell(1).innerHTML = row[1];
+//       newRow.insertCell(2).innerHTML = row[2];
+//       newRow.insertCell(3).innerHTML = row[3];
+//       newRow.insertCell(4).innerHTML = row[4];
+//       newRow.insertCell(5).innerHTML = row[5];
+//     });
+//   }
+
+
+
+
+
+
+   // Function to search data based on the first input value
+   function searchData() {
+    var input1Value = document.getElementById("input2").value;
+    var tableData = JSON.parse(localStorage.getItem("allData")) || [];
+
+    // Find the first row with the matching input1 value
+    var matchingRow = tableData.find(function(row) {
+      return row[1] == input1Value; // Accessing array elements by index
+    });
+
+    // Display all values from the matching row in the input fields
+    if (matchingRow) {
+      document.getElementById("input2").value = matchingRow[1];
+      document.getElementById("input3").value = matchingRow[2];
+      document.getElementById("input4").value = matchingRow[3];
+      document.getElementById("input5").value = matchingRow[4];
+      document.getElementById("input6").value = matchingRow[5];
+      document.getElementById("input7").value = matchingRow[6];
+      document.getElementById("input8").value = matchingRow[7];
+      document.getElementById("input9").value = matchingRow[8];
+      document.getElementById("input10").value = matchingRow[9];
+      document.getElementById("input11").value = matchingRow[10];
+      document.getElementById("input12").value = matchingRow[11];
+    } else {
+      // Handle the case when no matching row is found
+      alert("No matching data found for input1: " + input1Value);
+    }
+  }
+
+  // Call the loadTable function to load data when the page is loaded
+//   loadTable();
+
+
+
+
+function updateTextArea() {
+      // Get the selected option
+      const selectElement = document.getElementById('selectOption');
+      const selectedOption = selectElement.value;
+
+      // Get the text area element
+      const textAreaElement = document.getElementById('gxtext');
+
+      // Update the text area based on the selected option
+      switch (selectedOption) {
+        case 'TO DRAF':
+          textAreaElement.value = ' ড্রাফটিং আথরিটি পত্র নং ২৩,০২,২৬২৬,১২৮ তাং  ইং মোতাবেক বাঃ নৌঃ জাঃ বদলি করা হইল। ০২। পেকুয়া হইতে চট্টগ্রাম / ঢাকা/ খুলনা পর্য়ন্ত বে-সরকারি য়ানবাহনে ভ্রমন করিল। ০৩। আগ্রিম ভাতা প্রদান করা হইল। ০৪। ০২ দিনের ভ্রমন সময় প্রাপ্য।  ';
+          break;
+        case 'EX DRAF':
+          textAreaElement.value = ' বা নৌ জা - হইতে বদলি আসিল। বা নৌ জা ে- নৌ নং  - তাং - ইং মোতাবেক।';
+          break;
+        case 'EX LEAVE':
+          textAreaElement.value = 'ছুটি শেষে যথসময়ে হাজির হইল নৌ নং  - তাং -  ইং উল্লেখ্য। ০২। সঃ সংখ্যাঃ - রসদ ভাতা মঞ্জুর করা হইল।';
+          break;
+          case 'TO LEAVE':
+          textAreaElement.value = '২০২৪ সালের ৩০ ‍দিনের সুবিধাজনক ছুটি ও ০৬ দিনের য়াতাযাত সময় সহ ভ্রমন পত্র ব্যাতিত মঞ্জুর করা হইল। রেলস্টেসন - । ০২।সঃ সংখ্যা - - এর রসদ ভাতা বাতিল করা হইল।';
+          break;
+          case 'TO RL':
+          textAreaElement.value = '১লা জুলাই ২০২১ সাল হইতে ৩০ জুন ২০২৪ সাল চক্রের ১৫ ‍দিনের বিনোদন মূলক ছুটি ও০৬দিনের য়াতায়ত সময় সহ ভ্রমন পত্র ব্যাতিত মঞ্জুর করা হইল। রেলস্টেসন -। ০২। জেএসআই ৮/৮০ এবং ১/১৬ মোতাবেক বিনোদন মূলক ভাতা প্রাপ্য। ০৩। গোত বিনোদন মূলক ছুট  ভোগের তাং --- ইং। ০৪। রসদ ভাতা বাতিল করা হইল।   ';
+          break;
+          case 'TO TY':
+          textAreaElement.value = 'কমান্ডার সাবমেরিন পত্র নং ------ তাং --- ইং /  ড্রাফটিং আথরিটি পত্র নং ২৩,০২,২৬২৬,১২৮ তাং  ইং মোতাবেক বাঃ নৌঃ জাঃ  - অস্থায়ী বদলি করা হইল। ০২। পেকুয়া হইতে চট্টগ্রাম / ঢাকা/ খুলনা পর্য়ন্ত বে-সরকারি য়ানবাহনে ভ্রমন করিল। ০৩। আগ্রিম ভাতা প্রদান করা হইল। ০৪। ০২ দিনের ভ্রমন সময় প্রাপ্য।';
+          break;
+          case 'EX TY':
+          textAreaElement.value = 'আস্থায়ী কর্তব্য শেষে বা নৌ জা - হইতে হাজির হইল।  বা নৌ জা - নৌ নং - তাং - ইং মোতাবেক। ০২। সঃ সংখ্যাঃ - রসদ ভাতা মঞ্জুর করা হইল।';
+          break;
+          case 'TO ADMIT':
+          textAreaElement.value = ' পতেঙ্গা / সিএমএইস বার্তা ডি টি জি -- মাস  সাল মোতাবেক চিকিৎসার জন্য ভর্তি হইল। ০২। রসদ ভাতা বাতিল করা হইল।';
+          break;
+          case 'EX ADMIT':
+          textAreaElement.value = 'চিকিৎসা শেষে বা নৌ জা পতেঙ্গা / সিএমএইস হইতে হাজির হইল। পতেঙ্গা / সিএমএইস বার্তা ডি টি জি -- মাস  সাল মোতাবেক। ';
+          break;
+          case 'TO RUN':
+          textAreaElement.value = ' আনুপস্থিত চিহ্নত করা হইল';
+          break;
+          case 'EX RUN':
+          textAreaElement.value = 'আনুপস্থিত হইতে হাজির হইল';
+          break;
+          case 'TO MLR':
+          textAreaElement.value = 'রসদ ভাতা বাতিল করা হইল';
+          break;
+          case 'EX MLR':
+          textAreaElement.value = 'রসদ ভাতা মঞ্জুর করা হইল।';
+          break;
+          
+        // Add cases for other options as needed
+        default:
+          textAreaElement.value = 'Unknown option selected. Add your custom text here.';
+      }
+
+
+
+      
+
+      
+    }
+
+
+
+</script>
+
+
+    
+
+</body>
+</html>

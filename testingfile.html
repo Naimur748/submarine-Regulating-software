@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <style>
+        *{
+            outline: 1px solid red;
+        }
+        html,body{
+            margin-top: 0px;
+            margin-left: 0px;
+            background-color: #AEC3AE;
+        }
+        
+         /*
+        img{
+            width: 50px;
+        } */
+        /* .parent{
+           position: fixed;
+           width: 150px;
+           overflow-y: scroll;
+           top: 0;
+           bottom:0;
+           
+          scrollbar-width: none;
+        }
+        .parent::-webkit-scrollbar{
+            display: none;
+        }
+        .child{
+            background-color: blueviolet;
+            width: 60px;
+            height: 20px;
+            margin-top: 20px;
+        } */
+
+        div.scrolmenue{
+            background-color: #333;
+            overflow-y: auto;
+            
+            /* scrollbar-width: none; */
+            white-space: nowrap;
+            
+        }
+        .scrolmenue::-webkit-scrollbar {
+            display: none;
+        }
+        
+
+        div.scrolmenue a{
+            display: inline-block;
+            column-rule: white;
+            text-align: center;
+            padding: 14px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 20px;
+            color: aliceblue;
+        }
+        div.scrolmenue a:hover{
+            background-color: #777;
+        }
+       
+        .large_icon{
+            font-size: 40px;
+            width: 50px;
+        }
+        .large_icon:hover{
+            background-color:#B9B4C7 ;
+        }
+
+        .dark-mode {
+            background-color: #352F44;
+            color: white;
+        }
+        
+
+        .sun{
+            width: 100px;
+            font-size: 40px;
+            margin-top: 40px;
+        }
+        .search{
+            width: 500px;
+            height: 40px;
+            position: relative;
+            margin-top: 300px;
+            margin-bottom: 40px;
+            margin-left: 20px;
+            border-radius: 20px;
+            border: none;
+            background-color: #176B87;
+        }
+
+       
+
+
+    </style>
+
+    <input type="search" class="search">
+
+
+
+<!-- Horizontal scrol bar menue -->
+
+<div class="scrolmenue">
+    <a href="#">Leave request</a>
+    <a href="#">Married request</a>
+    <a href="#">Married allowence</a>
+    <a href="#">Reangazedment request</a>
+    <a href="#">Married request</a>
+    <a href="#">Mustaches</a>
+    <a href="#">Married request</a>
+    <a href="#"> Draf request</a>
+    <a href="#">Child request</a>
+    <a href="#">Reangazedment request</a>
+</div>
+
+
+
+
+    <i class="fa-regular fa-moon large_icon"  onclick="myFunction()"></i>
+
+    <i class="fa-solid fa-sun sun"></i>
+
+
+<script>
+    function myFunction() {
+       var element = document.body;
+       element.classList.toggle("dark-mode");
+    }
+    </script>
+
+
+
+<!-- <div id="printableArea">
+    <h1>Print me</h1>
+</div>
+
+<input type="button" onclick="printDiv('printableArea')" value="print a div!" /> -->
+<!-- <script>
+
+function printDiv(divName) {
+   var printContents = document.getElementById(divName).innerHTML;
+   var originalContents = document.body.innerHTML;
+
+   document.body.innerHTML = printContents;
+
+   window.print();
+
+   document.body.innerHTML = originalContents;
+}
+</script> -->
+
+
+
+
+<!-- <div class="img1">
+    <img src="logo/navy1.png" alt="">
+</div> -->
+    <!-- <div class="parent">
+        <div class="child">div1</div>
+        <div class="child">div2</div>
+        <div class="child">div3</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+        <div class="child">div4</div>
+    </div> -->
+</body>
+</html>

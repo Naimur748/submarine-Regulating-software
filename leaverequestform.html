@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        *{
+            /* border: 1px solid red; */
+            margin: 0;
+            padding:0;
+        }
+        html body{
+            background-color:#7A3E3E ;
+        }
+        .image>img{
+            width: 100px;
+           
+        }
+        .image{
+            margin-left: 300px;
+        }
+        .shn{
+            font-size: 20px;
+            text-align: center;
+           
+        }
+        .shn>p{
+            padding: 3px;
+        }
+        .leave-container{
+            width: 700px;
+            margin-left: 400px;
+            text-transform: uppercase;
+            padding: 20px;
+            margin-top: 80px;
+            background-color: cadetblue;
+            border-radius: 20px;
+            box-shadow: 0px 0px 18px 7px rgba(0,0,0,0.1);
+            position: absolute;
+        }
+        
+        .form-container{
+            display: flex;
+            /* justify-content: space-between; */
+        }
+        .form-secontcontainer>label{
+            display: block;
+            margin-top: 20px;
+           
+        }
+        .form-secontcontainer>input{
+            width: 300px;
+            height: 30px;
+            border-radius: 7px;
+        }
+        .form-thirdcontainer>label{
+            display: block;
+            margin-top: 20px;
+
+        }
+        .form-thirdcontainer>input{
+            width: 300px;
+            height: 30px;
+            border-radius: 7px;
+        }
+        .form-secontcontainer{
+            width: 50%;
+            font-size: 18px;
+        }
+        .form-thirdcontainer{
+            width: 50%;
+            font-size: 18px;
+        }
+        .footer{
+            height: 50px;
+            text-align: center;
+            background-color:#80BCBD ;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+        .footer>a{
+            margin-top: 0px;
+            width: 30%;
+            height: 30px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: bolder;
+            text-decoration: none;
+            display: block;
+            align-items: center;
+            margin-left: 34%;
+            color: black;
+            background-color: #D6D46D;
+            line-height: 28px;
+            position: relative;
+          
+        }
+        .footer>a:hover{
+            background-color: #1B4242;
+            color: white;
+
+        }
+
+
+    </style>
+
+<special-header></special-header>
+
+
+<script src="./headerfotermanager.js"></script>
+
+
+
+    <div class="leave-container">
+        <div class="leave-header">
+            <div class="image">
+                <img src="logo/navy1.png" alt="">
+            </div>
+            <div class="shn">
+                <p>b.n.s sheikh hasina</p>
+                <p>Leave request form</p>
+            </div>
+
+            <div class="form-container">
+                <div class="form-secontcontainer">
+                    <label for=""> official number:</label>
+                    <input type="number">
+                    <label for=""> name:</label>
+                    <input type="text">
+                    <label for=""> rank</label>
+                    <input type="text">
+                    <label for=""> mobile number:</label>
+                    <input type="number">
+                    <label for=""> father name:</label>
+                    <input type="text">
+                    <label for=""> village</label>
+                <input type="text">
+                </div>
+
+                <div class="form-thirdcontainer">
+                    
+                <label for=""> police station</label>
+                <input type="text">
+                <label for=""> district</label>
+                <input type="text">
+                <label for="">Last Leave Date:</label>
+                <input type="text">
+                <label for="">Deserve Leave</label>
+                <input type="text">
+                <label for="">Enter your sign</label>
+                <input type="file">
+                <label for=""> Leave type:</label>
+                <select name="" id="">
+                        <option value="">Privillage leave</option>
+                        <option value="">Recreation leave</option>
+                        <option value=""> Casual leave</option>
+                </select>
+
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="footer">
+           
+            <a href="leaverequest.html" >submit</a>
+        </div>
+        
+        
+    </div>
+
+    
+
+
+</body>
+</html>
