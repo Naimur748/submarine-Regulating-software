@@ -188,7 +188,7 @@ class specialheader extends HTMLElement{
 <!-- Content items, add more as needed -->
 <div class="content"><a class="atag" href="stateboard.html">Live state board</a></div>
 <div class="content"><a class="atag" href="gxmaker.html">genform making</a></div>
-<div class="content"><a class="atag" href="gxbook.html">gx book</a></div>
+<div class="content"><a class="atag" href="gxBookwithPrint.html">gx book</a></div>
 <div class="content"><a class="atag" href="shnshipscompany.html">shn ships company</a></div>
 <div class="content"><a class="atag" href="leaverequestform.html">Leave request form</a></div>
 <div class="content"><a class="atag" href="victualling.html">Gangway victualling</a></div>
