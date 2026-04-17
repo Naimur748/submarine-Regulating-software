@@ -1237,18 +1237,18 @@ function printContainer(index) {
                     </div>
 
                     <div style="
-     text-align:left;
-    margin-top:10px;
-    padding-left:80px;
-    line-height:1.2;
+                        text-align:left;
+                        margin-top:10px;
+                        padding-left:80px;
+                        line-height:1.4;
 
-    white-space:nowrap;   /* 🔥 KEY FIX */
-    word-break:normal;
-    overflow-wrap:normal;
+                        white-space:nowrap;   /* 🔥 KEY FIX */
+                        word-break:normal;
+                        overflow-wrap:normal;
 
-    font-family:Arial, sans-serif;
-">
-                        কে এম শাফিউল কিঞ্জল<br>
+                        font-family:Arial, sans-serif;
+                    ">
+                        আজিজ মোহাম্মদ ইমতিয়াজ<br>
                         লেঃ কমান্ডার বিএন<br>
                         রেগুলেটিং কর্মকর্তা<br>
                         বানৌজা পেকুয়া
@@ -1375,8 +1375,19 @@ h3{
 <div style="
     font-family:monospace;
     font-size:${isSingle ? "20px" : "14px"};
-    line-height:${isSingle ? "1.8" : "1.4"};
+    line-height:${isSingle ? "1.4" : "1.2"};
     font-weight:${isSingle ? "bold" : "normal"};
+    white-space:pre-line;
+    word-break:keep-all;
+
+    text-align:center;
+
+    /* 🔥 vertical + horizontal center */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:100%;
 ">
 ${sixSailorNo}
 </div>
