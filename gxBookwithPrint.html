@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gx book</title>
+    <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+</head>
+<body>
+
+    <style>
+        *{
+            /* outline: 1px solid red; */
+        }
+          body,html {
+            box-sizing: border-box;
+           font-family: 'AdorshoLipi', Arial, sans-serif !important;
+           background-color:#596FB7;
+        }
+
+        .maiContainer{
+            margin-top: 90px;
+            position: absolute;
+        }
+       
+
+        /* this first div are related problem horizontal navigation bar div */
+         
+          .first{
+            margin-left: 600px;
+            width: 400px;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0px 0px 18px 7px rgba(0,0,0,0.1);
+            background-color:  bisque;
+            text-align: center;
+            font-size: 20px;
+          
+           
+           
+        }
+
+        
+        textarea {
+        width: 350px;
+        height: 100px;
+        border: none;
+        min-width: 350px;
+        padding: 15px;
+        font-size: 15px;
+        background-color:  bisque;
+        position: relative;
+      }
+      
+    
+    
+    .items {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            background-color:  bisque;
+            font-size: 25px;
+            width: 1200px;
+            position: relative;
+            justify-content: space-between;
+            height: 200px;
+            border-radius: 15px;
+            margin-left: 200px;
+            margin-top: 50px;
+            box-shadow: 0px 0px 18px 7px rgba(0,0,0,0.1);
+        }
+
+        .items span {
+            cursor: pointer;
+            float: right;
+            font-weight: bold;
+        }
+       
+        .gxContainer{
+            display: block;
+            text-align: center;
+            
+        }
+        .wefContainer{
+            display: block;
+            text-align: center;
+        }
+        .gxContainer>:first-child{
+            border-bottom: 2px solid black;
+        }
+
+        .wefContainer>:first-child{
+            border-bottom: 2px solid black;
+        }
+        .editb{
+            height: 40px;
+            background-color: cadetblue;
+            width: 69px;
+            text-align: center;
+            display: block;
+            border-radius: 10px;
+        }
+        .editb:hover{
+            color: chartreuse;
+            background-color: #596FB7;
+
+        }
+        #editModal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 5;
+        }
+        .edpr{
+          width: 70px;
+        }
+        .edpr :nth-child(2){
+           display: block;
+           height: 20px;
+           margin-top: 170px;
+           margin-right: 40px;
+           width: 70px;
+           height: 30px;
+           text-transform: uppercase;
+           text-align: center;
+           font-size: 20px;
+           border-radius: 10px;
+
+           
+        }
+        .allbtnclick{
+            width: 1100px;
+            background-color: brown;
+            height: 80px;
+            z-index: 2;
+            margin-top: 20px;
+            margin-left: 260px;
+        
+
+        }
+        .allbtnclick>input{
+            width: 450px;
+            height: 50px;
+            margin-top: 12px;
+            border-radius: 10px;
+            margin-left: 20px;
+            border: none;
+            font-size: 20px;
+        }
+    .allbtnclick>input:hover{
+            color: black;
+            background-color:#AAD7D9;
+            border: 3px solid #212A3E ;
+        }
+        .allbtnclick>button{
+            width: 300px;
+            height: 30px;
+            margin-left: 300px;
+            height: 40px;text-align: center;
+            font-size: 20px;
+            border-radius: 10px;
+
+        }.allbtnclick>button:hover{
+            color: aqua;
+            background-color:midnightblue
+        }
+        .gxtext{
+            width: 350px;
+        height: 180px;
+        border: none;
+        min-width: 450px;
+        padding: 15px;
+        font-size: 15px;
+        background-color:  bisque;
+        position: relative;
+        }
+        .onr{
+            font-size: 20px;
+        }
+       .section>input{
+            width: 200px;
+            height: 23px;
+            border-radius: 7px;
+        }
+        .section>label{
+            text-transform: uppercase;
+        }
+        #editModal>h2{
+            margin-left: 100px;
+            margin-top: 0px;
+        }
+        #editModal>button{
+            margin-left: 130px;
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+        #editModal>button:hover{
+            background-color: cadetblue;
+            color: chartreuse;
+
+        }
+        .section>select{
+            width: 100px;
+            height: 20px;
+            margin-left: 7px;
+        }
+        #close{
+            margin-left: 400px;
+            margin-top: 0px;
+            cursor: pointer;
+            width: 100xp;
+            height: 50px;
+            
+            
+        }
+        .printItems{
+            width: 400px;
+            height: 400px;
+        }
+
+
+
+        
+
+
+
+
+
+
+
+
+           .tableArea{
+            width: 880px;
+            margin-left: 0%;
+            border: 1px solid black;
+             height: auto;
+            min-height: 540px;
+            margin-top: 0px;
+            display: none; 
+            
+            
+         }
+
+        table{
+            width: 95%;
+            border-collapse: collapse;
+            border-right: none;
+            
+        }
+          td{
+            border: 1px solid black;
+            
+
+        }
+
+        th {
+            height: 70px;
+        }
+        tr{
+            height: 27px;
+        }
+
+        tr:nth-child(-n+4) td:last-child {
+            border-right: none;
+        }
+
+        tr:last-child td:last-child {
+            border-right: none;
+    }
+
+    
+    .footterSection{
+        display: flex; 
+         
+        padding: 10px;
+    }
+
+    .leftSection, .rightSection {
+        width: 48%; 
+        font-size: 11px;
+        
+    }
+    .rightSection{
+        line-height: 25px;
+        margin-left: 100px;
+        
+    }
+    h3{
+        margin-left: 300px;
+    }
+
+    .co, .ro, .roRank{
+        border: none;
+        font-size: 13px;
+    }
+   
+
+    .aligned-text {
+            text-align: right; 
+            white-space: nowrap; /* সব টেক্সট একই লাইনে রাখবে */
+            border: none;
+            font-size: 14px;
+        }
+        .aligned-text span {
+            display: inline; /* টেক্সটকে ইনলাইন রাখবে */
+           
+        }
+        #rank{
+            padding-right: 27px;
+        }
+        #division{
+            padding-right: 22px;
+        }
+    
+
+
+
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #printContainer, #printContainer * {
+        visibility: visible;
+    }
+
+    #printContainer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+}
+
+            
+        
+
+       
+        
+    </style> 
+
+        
+<special-header></special-header>
+
+
+<script src="./headerfotermanager.js"></script>
+
+
+
+<div class="maiContainer">
+
+    <div class="first">
+        <div>বাংলাদেশ নৌবাহিনী</div>
+        <div>বাঃ নৌঃ জাঃ পেকুয়া</div>
+        <div>জেন ফর্ম বুক</div>
+        <div>তারিখঃ ১২/০৭/২৫</div>
+    </div>
+
+
+
+      <div class="allbtnclick">  
+                <input type="search" id="searchInput" oninput="searchObjects()" placeholder="Find your GX her......">
+                <button id="openPopupButton">CREATE GENFORM</button>
+       </div>
+
+
+
+
+    <div id="editModal">
+        <!-- Modal content -->
+        <span id="close">&#10006;</span>
+        <h2>CREATE GX</h2>
+        <!-- Add your input fields here -->
+        <div class="section">
+            <label for="input2">Gx Number:</label>
+            <br>
+            <input type="text" id="input1">
+        </div>
+    
+    
+        <div class="section">
+            <label for="input2">Gx Date:</label>
+            <br>
+            <input type="text" id="input2">
+        </div>
+    
+    
+        <div class="section">
+            <label for="input2">O.No Name Rank:</label>
+            <br>
+            <textarea name="" id="input3" cols="30" rows="10"></textarea>
+        </div>
+    
+        
+    
+        <div class="section">
+            <label for="gxdate">WEF Date:</label>
+            <br>
+            <input type="text" id="gxdate">
+        </div>
+    
+        <div class="section">
+            <label for="gxtime">Report Time:</label>
+            <br>
+            <select id="gxtime">
+                <option value="সকাল">সকাল</option>
+                <option value="বিকাল">বিকাল</option>
+            </select>
+        </div>
+
+        <div class="section">
+            <label for="selectOption">Select an option:</label>
+  <select name="" id="selectOption" onchange="updateTextArea()">
+     <option value="TO RUN">TO RUN</option>
+    <option value="TO DRAF">TO DRAF</option>
+    <option value="EX DRAF">EX DRAF</option>
+    <option value="EX LEAVE">EX LEAVE</option>
+    <option value="TO LEAVE">TO LEAVE</option>
+    <option value="TO RL">TO RL</option>
+    <option value="TO TY">TO TY</option>
+    <option value="EX TY">EX TY</option>
+    <option value="TO ADMIT">TO ADMIT</option>
+    <option value="EX ADMIT">EX ADMIT</option>
+   
+    <option value="EX RUN">EX RUN</option>
+    <option value="TO MLR">TO MLR</option>
+    <option value="EX MLR">EX MLR</option>
+    <option value="TO VICT">TO VICT</option>
+    <option value="EX VICT">EX VICT</option>
+  </select>
+
+  
+        </div>
+
+
+        <div class="section">
+            <label for="gxtext">Write your gx:</label><br>
+            <textarea id="gxtext" cols="30" rows="10"></textarea>
+        </div>
+    
+    
+        <!-- <button onclick="saveData()">Save Data</button> -->
+    
+        <button id="saveChangesButton" onclick="saveChanges()" style="display: none;">Save </button>
+        <button id="saveButton" style="display: none;">Save </button>
+
+    </div>
+
+
+    <div class="main"></div>
+
+    <div class="parentDiv">
+        <!-- Another div with class "items" -->
+        <div class="items">
+            <!-- ... -->
+        </div>
+    </div>
+
+
+
+
+    
+<!-- <div class="tableArea" id="printTable">
+    <h3>সাধারণ তথ্য</h3>
+    <table>
+            <tr>
+               <td style="width: 7px;">ব্যাক্তিগত নং</td>
+               <td rowspan="3" style="width: 400px; height: 120px; text-align: center;" id="six_sailor_No"></td>
+               <td id="gx_number">সাধারণ তথ্যের ক্রমিক নং</td>
+            </tr>
+
+            <tr>
+                <td style="width: 180px;">সরকারি সংখ্যাঃ</td>   
+                <td id="single_rank">পদবীঃ</td>
+             </tr>
+
+             <tr>
+                
+                <td style="width: 40px; text-align: center;" id="singleSailor_Number" ></td>
+                <td id="am_pm" style="text-align: center;"></td>
+               
+             </tr>
+
+             <tr>
+                <td id="gx_textArea_firstLine" colspan="2"></td>
+                <td id="wef_date" style="text-align: center;"></td>
+                
+             </tr>
+             
+             
+             <tr><td id="gx_textArea_secondLine" colspan="2"></td></tr>
+             <tr><td id="gx_textArea_thirdLine" colspan="2"></td></tr>
+             <tr><td id="gx_textArea_forthLine" colspan="2"></td> <td class="co">কমান্ডিং অফিসার</td></tr>
+             <tr><td id="gx_textArea_fifthLine" colspan="2"></td> <td class="co"> পক্ষে</td></tr>
+             <tr><td id="gx_textArea_sixLine" colspan="2"></td> <td class="aligned-text">  <span>কে এম শফিউল কিঞ্জল</span></td></tr>
+             <tr><td id="gx_textArea_sevenLine" colspan="2"></td> <td class="aligned-text" id="rank"> <span>লেফটেন্যান্ট বিএন</span></td></tr>
+             <tr><td id="gx_textArea_eightLine" colspan="2"></td> <td class="aligned-text" id="division"><span>রেগুলেটিং কর্মকর্তা</span></td></tr>
+             <tr><td id="gx_textArea_nineLine" colspan="2"></td> <td class="aligned-text"> <span>সাবমেরিন ঘাঁটি পেকুয়া</span></td></tr>
+             <tr><td id="gx_textArea_tenLine" colspan="2"></td><td id="gx_date" style="text-align: center;"></td></tr>
+             
+
+    </table>
+<div class="footterSection">
+    <div class="leftSection">
+<pre>* অপ্রয়োজনীয় অংশ কাটিতে হইবে।
+অফিসারের জন্য ‘অ’ উপসর্গ এবং নাবিকের জন্য ‘নৌ’ উপসর্গ ব্যবহার করিতে হইবে।
+
+১ম কপি সামরিক হিসাব নিয়ন্ত্রকের নিকট পাঠাইতে হইবে।
+২য় কপি    (ক) অফিসের জন্য নৌ সদর দপ্তরে পাঠাইতে হইবে।
+       (খ) নাবিকের জন্য নৌ বদলি কতৃপক্ষের নিকট পাঠাইতে হইবে।
+
+বিএনসিপিপি-২৯২(এস)
+    </pre>
+    </div>
+
+    <div class="rightSection">
+<pre>
+৩য় কপি একক হিসাব রক্ষকের নিকট পাঠায়তে হইবে।
+৪র্থ কপি সংশ্লিষ্ট ব্যাক্তিকে প্রদান করিতে হইবে।
+৫ম কপি খাদ্যদ্রব্য হিসাবের অনুকুলে যাইবে।
+৬ষ্ঠ কপি জাহাজের হিসাবে রাখিতে হইবে।
+    </pre>
+    </div>
+
+
+   </div>
+</div> -->
+
+
+
+
+</div>
+
+    <script>
+
+
+//    document.getElementById('printButton').addEventListener('click', function() {
+//     // Assuming you have a textarea with ID 'myTextarea' directly within the 'content' div
+//     var textareaContent = document.getElementById('myTextarea').value;
+
+//     // Get the outer HTML content of the 'content' div (excluding textarea)
+//     var contentOuterHTML = document.getElementById('content').cloneNode(true);  // Clone the 'content' div
+//     var textareaClone = contentOuterHTML.querySelector('#myTextarea');
+    
+//     // Remove the textarea from the clone if it exists
+//     if (textareaClone) {
+//         textareaClone.remove();
+//     }
+
+//     // Combine the outer HTML content with the textarea content
+//     var divContent = `${contentOuterHTML.innerHTML} <p>Textarea Content:</p>
+//     <div class="head1"></div>
+//     <div class="textarea">${textareaContent}</div>`;
+
+      
+
+//     // Display the content in the popup
+//     document.getElementById('popupContent').innerHTML = divContent;
+
+//     // Show the popup
+//     document.getElementById('popup').style.display = 'block';
+// });
+
+
+//         function printContent() {
+//             // Print the content of the specific div
+//             var popupContent = document.getElementById('popupContent').outerHTML;
+//             var printWindow = window.open('', '_blank');
+//             printWindow.document.write('<html><head><title>Printed Content</title></head><body>');
+//             printWindow.document.write(popupContent);
+//             printWindow.document.write('</body></html>');
+//             printWindow.document.close();
+            
+//             // Trigger the print dialog
+//             printWindow.print();
+
+//             // Close the print window
+//             printWindow.close();
+
+//             // Close the popup
+//             closePopup();
+//         }
+
+//         function closePopup() {
+//             // Close the popup
+//             document.getElementById('popup').style.display = 'none';
+//         }
+
+
+//           // Function to save text to localStorage
+//           function saveText() {
+//             var textValue = document.getElementById('myTextarea').value;
+//             localStorage.setItem('savedText', textValue);
+//             alert('Text saved to local storage!');
+//         }
+
+//         // Function to load text from localStorage
+//         function loadText() {
+//             var savedText = localStorage.getItem('savedText');
+//             if (savedText) {
+//                 document.getElementById('myTextarea').value = savedText;
+//             }
+//         }
+
+//         // Load saved text on page load
+//         window.onload = loadText;
+
+
+
+
+
+
+
+
+document.getElementById('openPopupButton').addEventListener('click', function () {
+    openPopup();
+});
+
+// Function to open the popup
+function openPopup() {
+    // Display the modal
+    document.getElementById("editModal").style.display = "block";
+    document.getElementById("saveButton").style.display = "block";
+
+
+    // Clear existing values in the popup fields
+    document.getElementById("input1").value = '';
+    document.getElementById("input2").value = '';
+    document.getElementById("input3").value = '';
+    document.getElementById("gxtime").value = '';
+    document.getElementById("gxdate").value = '';
+    document.getElementById("gxtext").value = '';
+
+    // Save changes when the "Save" button in the modal is clicked
+    document.getElementById("saveButton").onclick = function () {
+        
+        saveData();
+
+    };
+}
+
+
+
+
+// Uncomment the event listener for the "Save Changes" button
+document.getElementById("saveChangesButton").onclick = function () {
+    saveChanges();
+};
+
+
+   
+
+// Function to close the popup
+function closePopup() {
+    // Close the modal
+    document.getElementById("editModal").style.display = "none";
+
+
+
+}
+
+function saveData() {
+            var input1Value = document.getElementById("input1").value;
+            var input2Value = document.getElementById("input2").value;
+            var input3Value = document.getElementById("input3").value;
+            
+            var input4Value = document.getElementById("gxtime").value;
+            var input5Value = document.getElementById("gxdate").value;
+            var input6Value = document.getElementById("gxtext").value;
+
+            // Retrieve existing table data from local storage
+            var existingTableData = JSON.parse(localStorage.getItem("gxData")) || [];
+
+            // Add new row data to the beginning of the array
+            existingTableData.unshift({
+                gxNo: input1Value,
+                gxDate: input2Value,
+                onr: input3Value,
+                gxtime: input4Value,
+                wefdate: input5Value,
+                gxtext: input6Value
+            });
+
+            // Save the updated array back to local storage
+            localStorage.setItem("gxData", JSON.stringify(existingTableData));     
+
+
+        closePopup()
+
+            // Display the saved data
+            displayData();
+            
+        }
+
+
+
+        
+        
+function formatGXText(text) {
+    if (!text) return "";
+
+    // ০২। ০৩। … ০৮। এর আগে newline add করা
+    // এক বা দুই অঙ্কের serial numbers
+    text = text.replace(/\s*(০[২-৯]|১০)।/g, '\n$&');
+
+    // অতিরিক্ত space clean করা
+    text = text.replace(/\s+\n/g, '\n').trim();
+
+    return text;
+}
+
+
+
+
+
+
+
+
+        function updateTextArea() {
+      // Get the selected option
+      const selectElement = document.getElementById('selectOption');
+      const selectedOption = selectElement.value;
+
+      // Get the text area element
+      const textAreaElement = document.getElementById('gxtext');
+
+      let rawText = "";
+
+      // Update the text area based on the selected optio
+      switch (selectedOption) {
+        case 'TO DRAF':
+          rawText = ' ড্রাফটিং আথরিটি পত্র নং ২৩,০২,২৬২৬,১২৮ তাং  ইং মোতাবেক বানৌজা - এ বদলি করা হইল। ০২। পেকুয়া হইতে চট্টগ্রাম / ঢাকা/ খুলনা পর্য়ন্ত নিজ এবং পরিবার বে-সরকারি য়ানবাহনে ভ্রমন করিল। ০৩। পরিবারের সদস্য সংখ্যা নিজ ০১, স্ত্রী-০১, সন্তান ১২ বছরের উপরে -০২, মোট ০৪ (চার) জন ভ্রমণ করিল। ০৪। পিআরপি রুল ৩২৫,১৬৯,১৯৪ এবং নৌ সদর দপ্তর পত্র নং ২৩.০২.২৬২৬.১৮৪.২৫.৩৮১.২২.২৭১৭ তারিখ ০২ নভেম্বর ২০২৩ মোতাবেক পরিবারের ভ্রমণ ভাতা প্রাপ্য। ০৫। প্রতিরক্ষা মন্ত্রণালয় পত্র নং ২৩.০০.০০০০.১৯০.৩৩.০৮৭.১৬.১২ তারিখ ১২ জানুয়ারি ২০১৭ মোতাবেক গৃহস্থলী মালামালের ভাড়া প্রাপ্য। ০৬। আগ্রিম ভাতা প্রদান করা হইল। ০৭। রসদ ভাতা বাতিল করা হইল। ০৮। ০২ দিনের ভ্রমন সময় প্রাপ্য।  ';
+          break;
+        case 'EX DRAF':
+          rawText = ' বানৌজা - হইতে বদলি আসিল সাবমেরিন স্কুলের জন্য। বা নৌ জা - নৌ নং  - তাং - ইং মোতাবেক।';
+          break;
+        case 'EX LEAVE':
+          rawText = 'ছুটি শেষে যথসময়ে হাজির হইল নৌ নং  - তাং -  ইং উল্লেখ্য। ০২। সঃ সংখ্যাঃ - রসদ ভাতা মঞ্জুর করা হইল।';
+          break;
+          case 'TO LEAVE':
+          rawText = '২০২৬ সালের ৩০ ‍দিনের সুবিধাজনক ছুটি ও ০৬ দিনের য়াতাযাত সময় সহ ভ্রমন পত্র ব্যাতিত মঞ্জুর করা হইল। রেলস্টেসন - । ০২।সঃ সংখ্যা - - এর রসদ ভাতা বাতিল করা হইল।';
+          break;
+          case 'TO RL':
+          rawText = '১লা জুলাই ২০২১ সাল হইতে ৩০ জুন ২০২৪ সাল চক্রের ১৫ ‍দিনের বিনোদন মূলক ছুটি ও০৬দিনের য়াতায়ত সময় সহ ভ্রমন পত্র ব্যাতিত মঞ্জুর করা হইল। রেলস্টেসন -। ০২। জেএসআই ৮/৮০ এবং ১/১৬ মোতাবেক বিনোদন মূলক ভাতা প্রাপ্য। ০৩। গোত বিনোদন মূলক ছুট  ভোগের তাং --- ইং। ০৪। রসদ ভাতা বাতিল করা হইল।   ';
+          break;
+          case 'TO TY': 
+          rawText = ' কমসাব বার্তা ডিটিজি নং ------ ডিসেম্বর ২৫ ইং মোতাবেক চট্টগ্রাম অঞ্চলে অস্থায়ী গমন করিল /  ড্রাফটিং আথরিটি পত্র নং ২৩,০২,২৬২৬,১২৮ তাং  ইং মোতাবেক বাঃ নৌঃ জাঃ  - অস্থায়ী বদলি করা হইল। ০২। পেকুয়া হইতে চট্টগ্রাম / ঢাকা/ খুলনা পর্য়ন্ত বে-সরকারি য়ানবাহনে ভ্রমন করিল। ০৩। আগ্রিম ভাতা প্রদান করা হইল। ০৪। ০২ দিনের ভ্রমন সময় প্রাপ্য। ০৫। দৈনিক ভাতা মঞ্জুর করা হইল। ০৬। অগ্রিম দৈনিক ভাতা প্রদান করা হইল।';
+          break;
+          case 'EX TY':
+          rawText = 'আস্থায়ী কর্তব্য শেষে চট্টগ্রাম / মহেশখালী / টেকনাফ/ অঞ্চল / বা নৌ জা - হইতে হাজির হইল। আমার - নৌ নং - তাং - ইং মোতাবেক। ০২।  দৈনিক ভাতা বাতিল করা হইল। ০৩। সঃ সংখ্যাঃ - রসদ ভাতা মঞ্জুর করা হইল। ';
+          break;
+          case 'TO ADMIT':
+          rawText = 'বানৌজা পতেঙ্গা পত্র নং / সিএমএইস বার্তা ডিটিজি নং -- মাস  সাল মোতাবেক চিকিৎসার জন্য ভর্তি হইল। ০২।সঃ সংখ্যা ঃ --- এর রসদ ভাতা বাতিল করা হইল।';
+          break;
+          case 'EX ADMIT':
+          rawText = 'বানৌজা পতেঙ্গা পত্র নং -- / সিএমএইস বার্তা ডিটিজি নং-- মাস  সাল হইতে ই ং মোতাবেক চিকিৎসা শেষে হাজির হইল হাজির হইল। ০২। রসদ ভাতা মঞ্জুর করা হইল';
+          break;
+          case 'TO RUN':
+          rawText = ' আনুপস্থিত চিহ্নত করা হইল';
+          break;
+          case 'EX RUN':
+          rawText = 'আনুপস্থিত হইতে হাজির হইল';
+          break;
+          case 'TO MLR':
+          rawText = 'রসদ ভাতা বাতিল করা হইল';
+          break;
+          case 'EX MLR':
+          rawText = 'রসদ ভাতা মঞ্জুর করা হইল।';
+          break;
+          
+        // Add cases for other options as needed
+        default:
+            rawText = 'Unknown option selected. Add your custom text here.';
+      }
+
+       // GX Text ফরম্যাট
+    const formattedText = formatGXText(rawText, 12);
+
+    // textarea-তে assign
+    textAreaElement.value = formattedText;
+}
+
+
+
+      
+    
+
+
+
+
+
+
+
+
+let displayData = () => {
+            var userData = JSON.parse(localStorage.getItem("gxData")) || [];
+            var main = document.querySelector('.main');
+            let finalData = '';
+
+            userData.forEach((element, i) => {
+                finalData += `<div class="items">
+                    <div class="edpr">
+                    <span onclick='editButtonClick(${i})' class='editb'>&#x270E;</span>
+                    <button onclick="printContainer(${i})">Print</button>
+                    </div>
+                <div class="gxContainer"> 
+                    <div>${element.gxNo}</div>
+                    <div>${element.gxDate}</div>
+                </div>
+                  
+                    <textarea class="onr">${element.onr}</textarea>
+
+                <div class="wefContainer">  
+                    <div>${element.gxtime}</div>
+                    <div>${element.wefdate}</div>
+                    </div>
+                   
+
+                    
+                    <textarea class="gxtext">${element.gxtext}</textarea>
+
+                    
+ </div> 
+                
+                `;
+            });
+
+            main.innerHTML = finalData;
+        }
+
+        // Call displayData to show existing data on page load
+        displayData();
+
+        // // Function to remove data by index
+        // function removeData(index) {
+        //     var userData = JSON.parse(localStorage.getItem("gxData")) || [];
+        //     userData.splice(index, 1);
+        //     localStorage.setItem("gxData", JSON.stringify(userData));
+        //     displayData();
+        // }
+
+     
+
+// Function to handle edit button click
+function editButtonClick(index) {
+
+    document.getElementById("saveChangesButton").style.display = "block";
+    // Retrieve all data from local storage
+    var userData = JSON.parse(localStorage.getItem("gxData")) || [];
+
+    // If there is data at the specified index
+    if (userData[index]) {
+        // Populate form fields with values for editing
+        document.getElementById("input1").value = userData[index].gxNo;
+        document.getElementById("input2").value = userData[index].gxDate;
+        document.getElementById("input3").value = userData[index].onr;
+        document.getElementById("gxtime").value = userData[index].gxtime;
+        document.getElementById("gxdate").value = userData[index].wefdate;
+        document.getElementById("gxtext").value = userData[index].gxtext;
+
+        // Display the modal
+        document.getElementById("editModal").style.display = "block";
+
+        // Save changes when the "Save Changes" button in the modal is clicked
+        document.getElementById("saveChangesButton").onclick = function () {
+            saveChanges(index);
+        };
+    } else {
+        alert("Data not found at index " + index);
+    }
+
+    
+    document.getElementById("close").onclick = function () {
+     document.getElementById("editModal").style.display = "none";
+   
+};
+}
+
+
+
+// Function to save changes
+function saveChanges(index) {
+    // Retrieve all data from local storage
+    var userData = JSON.parse(localStorage.getItem("gxData")) || [];
+
+    // If there is data at the specified index
+    if (userData[index]) {
+        // Update data with new values from the modal
+        userData[index].gxNo = document.getElementById("input1").value;
+        userData[index].gxDate = document.getElementById("input2").value;
+        userData[index].onr = document.getElementById("input3").value;
+        userData[index].gxtime = document.getElementById("gxtime").value;
+        userData[index].wefdate = document.getElementById("gxdate").value;
+        userData[index].gxtext = document.getElementById("gxtext").value;
+
+        // Save the updated data back to local storage
+        localStorage.setItem("gxData", JSON.stringify(userData));
+
+        // Close the modal
+        document.getElementById("editModal").style.display = "none";
+
+        // Update the displayed data
+        displayData();
+    } else {
+        alert("Data not found at index " + index);
+    }
+}
+
+       
+closePopup()
+
+
+function searchObjects() {
+    var searchInput = document.getElementById('searchInput').value.toLowerCase();
+    var mainContainer = document.querySelector('.main');
+
+    // Clear previous search results
+    mainContainer.innerHTML = '';
+
+    // Retrieve data from local storage
+    var storedData = JSON.parse(localStorage.getItem('gxData')) || [];
+
+    // Filter objects based on any property and limit to elements inside the 'main' class
+    var searchResults = storedData.filter(function (obj) {
+        for (var key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                // Check if the property value includes the search input
+                if (obj[key].toString().toLowerCase().includes(searchInput)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    });
+
+    // Display search results
+    searchResults.forEach(function (result) {
+        var itemsContainer = document.createElement('div');
+        itemsContainer.classList.add('items');
+
+        itemsContainer.innerHTML = `
+            <span onclick='editButtonClick(${searchResults.indexOf(result)})' class='editb'>&#x270E;</span>
+            <div class="gxContainer"> 
+                <div>${result.gxNo}</div>
+                <div>${result.gxDate}</div>
+            </div>
+            <textarea>${result.onr}</textarea>
+            <div class="wefContainer">  
+                <div>${result.wefdate}</div>
+                <div>${result.gxtime}</div>
+            </div>
+            <textarea>${result.gxtext}</textarea>
+        `;
+
+        mainContainer.appendChild(itemsContainer);
+    });
+}
+
+
+
+
+
+
+
+
+// function printContainer(index) {
+//     // Retrieve data from local storage
+//     var gxData = JSON.parse(localStorage.getItem('gxData')) || [];
+
+//     // Open a new window and write the content
+//     var printWindow = window.open('', '_blank');
+//     printWindow.document.write('<html><head><title>Printed Content</title></head><body>');
+
+//         // Style the printed content
+//     printWindow.document.write('<style>');
+//     printWindow.document.write('body { font-family: Arial, sans-serif; }');
+//     printWindow.document.write('.items { border: 1px solid #ccc; padding: 10px; margin: 10px 0; display: flex; background-color: bisque; font-size: 14px; width: 80%; }');
+//     printWindow.document.write('.gxContainer, .wefContainer { margin-right: 20px; }');
+//     printWindow.document.write('</style>');
+
+//     printWindow.document.write('</head><body>');
+
+
+
+
+//     // Check if the index is valid
+//     if (index >= 0 && index < gxData.length) {
+//         var element = gxData[index];
+
+//         printWindow.document.write('<div class="printItems">');
+//         printWindow.document.write('<div class="gxContainer"><div>' + element.gxNo + '</div><div>' + element.gxDate + '</div></div>');
+//         printWindow.document.write('<div>' + element.onr + '</div>');
+//         printWindow.document.write('<div class="wefContainer"><div>' + element.gxtime + '</div><div>' +  element.wefdate + '</div></div>');
+//         printWindow.document.write('<div>' + element.gxtext + '</div>');
+//         printWindow.document.write('</div>');
+//     } else {
+//         // Handle invalid index (out of range)
+//         printWindow.document.write('<p>Invalid index</p>');
+//     }
+
+//     printWindow.document.write('</body></html>');
+//     printWindow.document.close();
+
+//     // Trigger the print dialog
+//     printWindow.print();
+
+//     // Close the print window
+//     printWindow.close();
+// }
+
+
+
+
+
+
+
+
+
+
+
+ document.getElementById("printContainer").addEventListener("click", function () {
+    const gxNumber = document.getElementById("input1").value.trim();
+    const gxDate = document.getElementById("input2").value.trim();
+    const sailorInfo = document.getElementById("input3").value.trim();
+    const wefDate = document.getElementById("gxdate").value.trim();
+    const reportTime = document.getElementById("gxtime").value.trim();
+    const gxText = document.getElementById("gxtext").value.trim();
+
+    // gxNumber-এর ভ্যালু "সাধারণ তথ্যের ক্রমিক নং" এর সাথে যুক্ত করা
+    const existingText = "সাধারণ তথ্যের নৌ নং /";
+    const updatedText = `${existingText}: ${gxNumber || "N/A"}`;
+    document.getElementById("gx_number").textContent = updatedText;
+
+    // অন্যান্য তথ্য প্রদর্শন
+    document.getElementById("gx_date").textContent = gxDate || "N/A";
+    document.getElementById("wef_date").textContent = wefDate || "N/A";
+    document.getElementById("am_pm").textContent = reportTime || "N/A";
+
+    // সেলরদের তথ্য প্রসেস করা
+    const sailorLines = sailorInfo.split("\n").map(line => line.trim()).filter(line => line !== "");
+
+    if (sailorLines.length === 1) {
+        // একক সেলরের তথ্য প্রসেস করা
+        const [govNumber, ...rest] = sailorLines[0].split(" ").map(item => item.trim());
+        const nameParts = rest.filter(part => /^[\u0980-\u09FF]+$/.test(part)); // বাংলা অংশ
+        const rankParts = rest.filter(part => /^[a-zA-Z0-9-]+$/.test(part)); // ইংরেজি অংশ
+
+        const name = nameParts.join(" ");
+        const rank = rankParts.join(" ");
+        const rankWithDesignation = `পদবীঃ ${rank || "N/A"}`; // পদবী যুক্ত করা
+
+        document.getElementById("singleSailor_Number").textContent = govNumber || "N/A";
+        document.getElementById("six_sailor_No").textContent = name || "N/A";
+        document.getElementById("single_rank").textContent = rankWithDesignation; // আপডেটেড রাঙ্ক
+    } else if (sailorLines.length <= 6) {
+        // একাধিক সেলরের তথ্য প্রসেস করা
+        const formattedSailors = sailorLines.map((line, index) => {
+            const parts = line.split(" ").map(item => item.trim());
+            const govNumber = parts[0];
+            const name = parts[1] + " " + parts[2]; // নাম
+            const rank = parts.slice(3).join(" "); // পদবী
+            const rankWithDesignation = `পদবীঃ ${rank || "N/A"}`; // পদবী যুক্ত করা
+
+            return `${index + 1}. ${govNumber} ${name} ${rankWithDesignation}`; // ফরম্যাট
+        }).join("<br>");
+
+        document.getElementById("six_sailor_No").innerHTML = formattedSailors;
+        document.getElementById("singleSailor_Number").textContent = "";
+        document.getElementById("single_rank").textContent = "";
+    }
+
+    // gxText এর লাইন প্রসেস করা
+    const gxLines = gxText.split("\n").map(line => line.trim()).filter(line => line !== "");
+    const lineIds = [
+        "gx_textArea_firstLine",
+        "gx_textArea_secondLine",
+        "gx_textArea_thirdLine",
+        "gx_textArea_forthLine",
+        "gx_textArea_fifthLine",
+    ];
+    lineIds.forEach((id, index) => {
+        document.getElementById(id).textContent = gxLines[index] || "";
+    });
+
+
+
+
+
+
+
+    // প্রিন্ট টেবিল দেখানো এবং প্রিন্ট করা
+    // 🔹 মূল টেবিল দেখানো
+const originalTable = document.getElementById("printTable");
+originalTable.style.display = "block";
+
+// 🔹 clone তৈরি (দ্বিতীয় কপি)
+const cloneTable = originalTable.cloneNode(true);
+cloneTable.id = "printTableClone";
+cloneTable.style.marginTop = "20px";
+
+// 🔹 Print container না থাকলে বানাও
+let container = document.getElementById("printContainer");
+if (!container) {
+    container = document.createElement("div");
+    container.id = "printContainer";
+    document.body.appendChild(container);
+}
+
+// 🔹 আগের কিছু থাকলে ক্লিয়ার
+container.innerHTML = "";
+
+// 🔹 উপরে original, নিচে clone
+container.appendChild(originalTable);
+container.appendChild(cloneTable);
+
+// 🔹 প্রিন্ট
+setTimeout(() => {
+    
+    window.print();
+
+    // 🔹 প্রিন্ট শেষে cleanup
+    document.body.appendChild(originalTable);
+    cloneTable.remove();
+    originalTable.style.display = "none";
+}, 300);
+
+});
+
+
+
+
+
+
+
+
+
+function printContainer(index) {
+    const gxData = JSON.parse(localStorage.getItem('gxData')) || [];
+
+    if (index < 0 || index >= gxData.length) {
+        alert("Invalid index");
+        return;
+    }
+
+    const d = gxData[index];
+
+    // ✅ gxText
+    const gxText = d.gxtext || "";
+    const gxLines = gxText
+        .split("\n")
+        .map(line => line.trim())
+        .filter(line => line !== "");
+
+    while (gxLines.length < 10) gxLines.push("");
+
+    // ✅ Sailor info
+    const sailorInfo = d.onr || "";
+    let singleSailorNumber = "";
+    let singleRank = "";
+    let sixSailorNo = "";
+
+    const sailorLines = sailorInfo
+        .split("\n")
+        .map(line => line.trim())
+        .filter(line => line !== "");
+
+    const sailorCount = sailorLines.length;
+
+    const isSingle = sailorCount === 1;
+    const isOverflow = sailorCount > 6;
+
+    if (isSingle) {
+        const [govNumber, ...rest] = sailorLines[0].split(" ");
+        const nameParts = rest.filter(p => /^[\u0980-\u09FF]+$/.test(p));
+        const rankParts = rest.filter(p => /^[a-zA-Z0-9-]+$/.test(p));
+
+        singleSailorNumber = govNumber || "";
+        sixSailorNo = nameParts.join(" ");
+        singleRank = rankParts.join(" ");
+    } 
+    else if (!isOverflow) {
+        sixSailorNo = sailorLines
+            .map((line, i) => `${i + 1}. ${line}`)
+            .join("<br>");
+    } 
+    else {
+        sixSailorNo = '<div style="text-align:center; font-weight:bold;">অঃ পৃঃ দ্রঃ</div>';
+    }
+
+    /* ===============================
+       GX + SIGNATURE
+    =============================== */
+
+    const totalGX = gxLines.length;
+    const signatureStartIndex = totalGX - 6;
+
+    let gxRowsHTML = "";
+
+    gxLines.forEach((line, i) => {
+
+        if (i === 0) {
+            gxRowsHTML += `
+            <tr>
+                <td colspan="2">${line}</td>
+                <td style="text-align:center; border-right:none;">
+                    ${d.wefdate || ""}
+                </td>
+            </tr>`;
+        }
+
+        else if (i === signatureStartIndex) {
+            gxRowsHTML += `
+            <tr>
+                <td colspan="2">${line}</td>
+
+                <td rowspan="6"
+                    style="
+                        border:none;
+                        vertical-align:top;
+                        padding:10px;
+                        line-height:1.4;
+                    ">
+
+                    <div style="text-align:left;">
+                        কমান্ডিং অফিসার<br>
+                        পক্ষে
+                    </div>
+
+                    <div style="
+                        text-align:left;
+                        margin-top:10px;
+                        padding-left:80px;
+                        line-height:1.6;
+                    ">
+                        কে এম শাফিউল কিঞ্জল<br>
+                        লেঃ কমান্ডার বিএন<br>
+                        রেগুলেটিং কর্মকর্তা<br>
+                        বানৌজা পেকুয়া
+                    </div>
+
+                </td>
+            </tr>`;
+        }
+
+        else {
+            gxRowsHTML += `
+            <tr>
+                <td colspan="2">${line}</td>
+            </tr>`;
+        }
+    });
+
+    /* ===============================
+       ✅ SECOND PAGE (MAX 30 SAILOR)
+    =============================== */
+
+    let secondPageHTML = "";
+
+    if (sailorCount > 6) {
+
+        const extraSailors = sailorLines.slice(0, 30);
+
+        const col1 = extraSailors.slice(0, 10);
+        const col2 = extraSailors.slice(10, 20);
+        const col3 = extraSailors.slice(20, 30);
+
+        const formatColumn = (arr, start) => {
+            return arr.map((line, i) => `${start + i + 1}. ${line}`).join("<br>");
+        };
+
+        secondPageHTML = `
+        <div style="page-break-before: always;"></div>
+
+        <div class="tableArea">
+            <h3 style="text-align:center;">দ্রষ্টব্য</h3>
+
+            <table>
+                <tr>
+
+                    <td style="width:33%; vertical-align:top; padding:10px;">
+                        ${formatColumn(col1, 0)}
+                    </td>
+
+                    <td style="width:33%; vertical-align:top; padding:10px;">
+                        ${formatColumn(col2, 10)}
+                    </td>
+
+                    <td style="width:33%; vertical-align:top; padding:10px;">
+                        ${formatColumn(col3, 20)}
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+        `;
+    }
+
+    // ✅ Print window
+    const printWindow = window.open('', '_blank');
+
+    printWindow.document.write(`
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>GX Print</title>
+
+<style>
+.tableArea{
+    width:880px;
+    border:1px solid black;
+    min-height:540px;
+}
+
+table{
+    width:95%;
+    border-collapse:collapse;
+}
+
+td{
+    border:1px solid black;
+    padding:4px;
+    vertical-align:top;
+}
+
+tr{
+    height:28px;
+}
+
+h3{
+    margin-left:300px;
+}
+
+@media print{
+    body{margin:0;}
+}
+</style>
+
+</head>
+<body>
+
+<div class="tableArea">
+<h3>সাধারণ তথ্য</h3>
+
+<table>
+
+<tr>
+<td>ব্যাক্তিগত নং</td>
+
+<td rowspan="3"
+    style="
+        width:400px;
+        height:100px;
+        text-align:left;
+        vertical-align:middle;
+        padding-left:10px;
+    ">
+
+<div style="
+    font-family:monospace;
+    font-size:${isSingle ? "20px" : "14px"};
+    line-height:${isSingle ? "1.8" : "1.4"};
+    font-weight:${isSingle ? "bold" : "normal"};
+">
+${sixSailorNo}
+</div>
+
+</td>
+
+<td style="border-right:none;">
+সাধারণ তথ্যের ক্রমিক নৌ নং/: ${d.gxNo || ""}
+</td>
+</tr>
+
+<tr>
+<td>সরকারি সংখ্যাঃ</td>
+<td style="border-right:none;">পদবীঃ ${singleRank}</td>
+</tr>
+
+<tr>
+<td>${singleSailorNumber}</td>
+<td style="text-align:center; border-right:none;">
+${d.gxtime || ""}
+</td>
+</tr>
+
+${gxRowsHTML}
+
+<tr>
+<td colspan="2"></td>
+<td style="text-align:center; border-right:none;">
+${d.gxDate || ""}
+</td>
+</tr>
+
+</table>
+</div>
+
+${secondPageHTML}
+
+</body>
+</html>
+`);
+
+    printWindow.document.close();
+    printWindow.focus();
+    printWindow.onload = () => printWindow.print();
+    printWindow.onafterprint = () => printWindow.close();
+}
+
+        
+    </script>
+      
+</body>
+</html>
