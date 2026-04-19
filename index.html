@@ -16,6 +16,7 @@
             box-sizing: border-box;
            font-family: 'AdorshoLipi', Arial, sans-serif !important;
            background-color:#596FB7;
+           
         }
 
         .maiContainer{
@@ -841,13 +842,7 @@ let displayData = () => {
         // Call displayData to show existing data on page load
         displayData();
 
-        // // Function to remove data by index
-        // function removeData(index) {
-        //     var userData = JSON.parse(localStorage.getItem("gxData")) || [];
-        //     userData.splice(index, 1);
-        //     localStorage.setItem("gxData", JSON.stringify(userData));
-        //     displayData();
-        // }
+       
 
      
 
@@ -969,65 +964,6 @@ function searchObjects() {
 
 
 
-
-
-
-
-// function printContainer(index) {
-//     // Retrieve data from local storage
-//     var gxData = JSON.parse(localStorage.getItem('gxData')) || [];
-
-//     // Open a new window and write the content
-//     var printWindow = window.open('', '_blank');
-//     printWindow.document.write('<html><head><title>Printed Content</title></head><body>');
-
-//         // Style the printed content
-//     printWindow.document.write('<style>');
-//     printWindow.document.write('body { font-family: Arial, sans-serif; }');
-//     printWindow.document.write('.items { border: 1px solid #ccc; padding: 10px; margin: 10px 0; display: flex; background-color: bisque; font-size: 14px; width: 80%; }');
-//     printWindow.document.write('.gxContainer, .wefContainer { margin-right: 20px; }');
-//     printWindow.document.write('</style>');
-
-//     printWindow.document.write('</head><body>');
-
-
-
-
-//     // Check if the index is valid
-//     if (index >= 0 && index < gxData.length) {
-//         var element = gxData[index];
-
-//         printWindow.document.write('<div class="printItems">');
-//         printWindow.document.write('<div class="gxContainer"><div>' + element.gxNo + '</div><div>' + element.gxDate + '</div></div>');
-//         printWindow.document.write('<div>' + element.onr + '</div>');
-//         printWindow.document.write('<div class="wefContainer"><div>' + element.gxtime + '</div><div>' +  element.wefdate + '</div></div>');
-//         printWindow.document.write('<div>' + element.gxtext + '</div>');
-//         printWindow.document.write('</div>');
-//     } else {
-//         // Handle invalid index (out of range)
-//         printWindow.document.write('<p>Invalid index</p>');
-//     }
-
-//     printWindow.document.write('</body></html>');
-//     printWindow.document.close();
-
-//     // Trigger the print dialog
-//     printWindow.print();
-
-//     // Close the print window
-//     printWindow.close();
-// }
-
-
-
-
-
-
-
-
-
-
-
  document.getElementById("printContainer").addEventListener("click", function () {
     const gxNumber = document.getElementById("input1").value.trim();
     const gxDate = document.getElementById("input2").value.trim();
@@ -1140,308 +1076,6 @@ setTimeout(() => {
 
 
 
-/*
-
-
-
-function printContainer(index) {
-    const gxData = JSON.parse(localStorage.getItem('gxData')) || [];
-
-    if (index < 0 || index >= gxData.length) {
-        alert("Invalid index");
-        return;
-    }
-
-    const d = gxData[index];
-
-    // ✅ gxText
-    const gxText = d.gxtext || "";
-    const gxLines = gxText
-        .split("\n")
-        .map(line => line.trim())
-        .filter(line => line !== "");
-
-    while (gxLines.length < 10) gxLines.push("");
-
-    // ✅ Sailor info
-    const sailorInfo = d.onr || "";
-    let singleSailorNumber = "";
-    let singleRank = "";
-    let sixSailorNo = "";
-
-    const sailorLines = sailorInfo
-        .split("\n")
-        .map(line => line.trim())
-        .filter(line => line !== "");
-
-    const sailorCount = sailorLines.length;
-
-    const isSingle = sailorCount === 1;
-    const isOverflow = sailorCount > 6;
-
-    if (isSingle) {
-        const [govNumber, ...rest] = sailorLines[0].split(" ");
-        const nameParts = rest.filter(p => /^[\u0980-\u09FF]+$/.test(p));
-        const rankParts = rest.filter(p => /^[a-zA-Z0-9-]+$/.test(p));
-
-        singleSailorNumber = govNumber || "";
-        sixSailorNo = nameParts.join(" ");
-        singleRank = rankParts.join(" ");
-    } 
-    else if (!isOverflow) {
-        sixSailorNo = sailorLines
-            .map((line, i) => `${i + 1}. ${line}`)
-            .join("<br>");
-    } 
-    else {
-        sixSailorNo = '<div style="text-align:center; font-weight:bold;">অঃ পৃঃ দ্রঃ</div>';
-    }
-
-    // ===============================
-    //   GX + SIGNATURE
-    // =============================== 
-
-    const totalGX = gxLines.length;
-    const signatureStartIndex = totalGX - 6;
-
-    let gxRowsHTML = "";
-
-    gxLines.forEach((line, i) => {
-
-        if (i === 0) {
-            gxRowsHTML += `
-            <tr>
-                <td colspan="2">${line}</td>
-                <td style="text-align:center; border-right:none;">
-                    ${d.wefdate || ""}
-                </td>
-            </tr>`;
-        }
-
-        else if (i === signatureStartIndex) {
-            gxRowsHTML += `
-            <tr>
-                <td colspan="2">${line}</td>
-
-                <td rowspan="6"
-                    style="
-                        border:none;
-                        vertical-align:top;
-                        padding:10px;
-                        line-height:1.4;
-                    ">
-
-                    <div style="text-align:left;">
-                        কমান্ডিং অফিসার<br>
-                        পক্ষে
-                    </div>
-
-                    <div style="
-                        text-align:left;
-                        margin-top:10px;
-                        padding-left:80px;
-                        line-height:1.4;
-
-                        white-space:nowrap;   
-                        word-break:normal;
-                        overflow-wrap:normal;
-
-                        font-family:Arial, sans-serif;
-                    ">
-                        আজিজ মোহাম্মদ ইমতিয়াজ<br>
-                        লেঃ কমান্ডার বিএন<br>
-                        রেগুলেটিং কর্মকর্তা<br>
-                        বানৌজা পেকুয়া
-                    </div>
-
-                </td>
-            </tr>`;
-        }
-
-        else {
-            gxRowsHTML += `
-            <tr>
-                <td colspan="2">${line}</td>
-            </tr>`;
-        }
-    });
-
-    // ===============================
-      // ✅ SECOND PAGE (MAX 30 SAILOR)
-    //=============================== 
-
-    let secondPageHTML = "";
-
-    if (sailorCount > 6) {
-
-        const extraSailors = sailorLines.slice(0, 30);
-
-        const col1 = extraSailors.slice(0, 10);
-        const col2 = extraSailors.slice(10, 20);
-        const col3 = extraSailors.slice(20, 30);
-
-        const formatColumn = (arr, start) => {
-            return arr.map((line, i) => `${start + i + 1}. ${line}`).join("<br>");
-        };
-
-        secondPageHTML = `
-        <div style="page-break-before: always;"></div>
-
-        <div class="tableArea">
-            <h3 style="text-align:center;">দ্রষ্টব্য</h3>
-
-            <table>
-                <tr>
-
-                    <td style="width:33%; vertical-align:top; padding:10px;">
-                        ${formatColumn(col1, 0)}
-                    </td>
-
-                    <td style="width:33%; vertical-align:top; padding:10px;">
-                        ${formatColumn(col2, 10)}
-                    </td>
-
-                    <td style="width:33%; vertical-align:top; padding:10px;">
-                        ${formatColumn(col3, 20)}
-                    </td>
-
-                </tr>
-            </table>
-        </div>
-        `;
-    }
-
-    // ✅ Print window
-    const printWindow = window.open('', '_blank');
-
-    printWindow.document.write(`
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>GX Print</title>
-
-<style>
-.tableArea{
-    width:880px;
-    border:1px solid black;
-    min-height:540px;
-}
-
-table{
-    width:95%;
-    border-collapse:collapse;
-}
-
-td{
-    border:1px solid black;
-    padding:4px;
-    vertical-align:top;
-}
-
-tr{
-    height:28px;
-}
-
-h3{
-    margin-left:300px;
-}
-
-@media print{
-    body{margin:0;}
-}
-</style>
-
-</head>
-<body>
-
-<div class="tableArea">
-<h3>সাধারণ তথ্য</h3>
-
-<table>
-
-<tr>
-<td>ব্যাক্তিগত নং</td>
-
-<td rowspan="3"
-    style="
-        width:400px;
-        height:100px;
-        text-align:left;
-        vertical-align:middle;
-        padding-left:10px;
-    ">
-
-<div style="
-    font-family:monospace;
-    font-size:${isSingle ? "20px" : "14px"};
-    line-height:${isSingle ? "1.4" : "1.2"};
-    font-weight:${isSingle ? "bold" : "normal"};
-    white-space:pre-line;
-    word-break:keep-all;
-
-    text-align:center;
-
-   
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    height:100%;
-">
-${sixSailorNo}
-</div>
-
-</td>
-
-<td style="border-right:none;">
-সাধারণ তথ্যের ক্রমিক নৌ নং/: ${d.gxNo || ""}
-</td>
-</tr>
-
-<tr>
-<td>সরকারি সংখ্যাঃ</td>
-<td style="border-right:none;">পদবীঃ ${singleRank}</td>
-</tr>
-
-<tr>
-<td>${singleSailorNumber}</td>
-<td style="text-align:center; border-right:none;">
-${d.gxtime || ""}
-</td>
-</tr>
-
-${gxRowsHTML}
-
-<tr>
-<td colspan="2"></td>
-<td style="text-align:center; border-right:none;">
-${d.gxDate || ""}
-</td>
-</tr>
-
-</table>
-</div>
-
-${secondPageHTML}
-
-</body>
-</html>
-`);
-
-    printWindow.document.close();
-    printWindow.focus();
-    printWindow.onload = () => printWindow.print();
-    printWindow.onafterprint = () => printWindow.close();
-}
-
-
-
-
-*/
-
-
-
 
 
 function printContainer(index) {
@@ -1492,7 +1126,7 @@ function printContainer(index) {
             .join("<br>");
     } 
     else {
-        sixSailorNo = '<div style="text-align:center; font-weight:bold;">অঃ পৃঃ দ্রঃ</div>';
+        sixSailorNo = '<div style="text-align:center; font-weight:bold;font-size:30px">অঃ পৃঃ দ্রঃ</div>';
     }
 
     const totalGX = gxLines.length;
@@ -1518,12 +1152,7 @@ function printContainer(index) {
                 <td colspan="2">${line}</td>
 
                 <td rowspan="6"
-                    style="
-                        border:none;
-                        vertical-align:top;
-                        padding:10px;
-                        line-height:1.4;
-                    ">
+                    style="border:none; vertical-align:top; padding:10px;">
 
                     <div style="text-align:left;">
                         কমান্ডিং অফিসার<br>
@@ -1540,7 +1169,7 @@ function printContainer(index) {
                         overflow-wrap:normal;
                         font-family:Arial, sans-serif;
                     ">
-                        আজিজ মোহাম্মদ ইমতিয়াজ<br>
+                        আজিজ মুহাম্মদ ইমতিয়াজ<br>
                         লেঃ কমান্ডার বিএন<br>
                         রেগুলেটিং কর্মকর্তা<br>
                         বানৌজা পেকুয়া
@@ -1558,19 +1187,79 @@ function printContainer(index) {
         }
     });
 
-    /* 🔥 NEW BOTTOM NOTE SECTION (INSERTED INSIDE FUNCTION) */
-    const bottomNoteHTML = `
-    <div style="
-        margin-top:10px;
-        font-size:10px;
-        font-family:Arial;
-    ">
 
-    <div style="
-        display:flex;
-        justify-content:space-between;
-        gap:20px;
-    ">
+/* 🔥 SECOND PAGE (4 COLUMN VERSION – ALL DATA IN ONE PAGE) */
+
+let secondPageHTML = "";
+
+if (sailorCount > 6) {
+
+    const total = sailorLines.length;
+    const colCount = 4; // 🔥 এখানে ৩ এর জায়গায় ৪
+
+    const perCol = Math.ceil(total / colCount);
+
+    const col1 = sailorLines.slice(0, perCol);
+    const col2 = sailorLines.slice(perCol, perCol * 2);
+    const col3 = sailorLines.slice(perCol * 2, perCol * 3);
+    const col4 = sailorLines.slice(perCol * 3, perCol * 4);
+
+    const formatColumn = (arr, start) => {
+        return arr.map((line, i) => `${start + i + 1}. ${line}`).join("<br>");
+    };
+
+    let fontSize = "12px";
+    let lineHeight = "1.6";
+
+    if (total > 80) {
+        fontSize = "12px";
+        lineHeight = "1.4";
+    }
+    if (total > 150) {
+        fontSize = "12px";
+        lineHeight = "1.3";
+    }
+    if (total > 250) {
+        fontSize = "12px";
+        lineHeight = "1.2";
+    }
+
+    secondPageHTML = `
+    <div style="page-break-before: always;"></div>
+
+    <div class="tableArea">
+        <h3 style="text-align:center;">দ্রষ্টব্য</h3>
+
+        <table>
+            <tr>
+
+                <td style="width:25%; vertical-align:top; padding:5px; font-size:${fontSize}; line-height:${lineHeight};">
+                    ${formatColumn(col1, 0)}
+                </td>
+
+                <td style="width:25%; vertical-align:top; padding:5px; font-size:${fontSize}; line-height:${lineHeight};">
+                    ${formatColumn(col2, perCol)}
+                </td>
+
+                <td style="width:25%; vertical-align:top; padding:5px; font-size:${fontSize}; line-height:${lineHeight};">
+                    ${formatColumn(col3, perCol * 2)}
+                </td>
+
+                <td style="width:25%; vertical-align:top; padding:5px; font-size:${fontSize}; line-height:${lineHeight};">
+                    ${formatColumn(col4, perCol * 3)}
+                </td>
+
+            </tr>
+        </table>
+    </div>
+    `;
+}
+
+    /* 🔥 BOTTOM NOTE */
+    const bottomNoteHTML = `
+    <div style="margin-top:10px;font-size:10px;font-family:Arial;">
+
+    <div style="display:flex;justify-content:space-between;gap:20px;">
 
         <div style="width:60%; text-align:left; line-height:2; margin-left: 20px;">
             * অপ্রয়োজনীয় অংশ কাটিতে হইবে।<br>
@@ -1606,34 +1295,12 @@ function printContainer(index) {
 <title>GX Print</title>
 
 <style>
-.tableArea{
-    width:880px;
-    border:1px solid black;
-    min-height:540px;
-}
-
-table{
-    width:95%;
-    border-collapse:collapse;
-}
-
-td{
-    border:1px solid black;
-    padding:4px;
-    vertical-align:top;
-}
-
-tr{
-    height:28px;
-}
-
-h3{
-    margin-left:300px;
-}
-
-@media print{
-    body{margin:0;}
-}
+.tableArea{width:880px;border:1px solid black;min-height:540px; margin-top: 30px;}
+table{width:95%;border-collapse:collapse;}
+td{border:1px solid black;padding:4px;vertical-align:top;}
+tr{height:28px;}
+h3{text-align:center;}
+@media print{body{margin:0;}}
 </style>
 
 </head>
@@ -1647,9 +1314,7 @@ h3{
 <tr>
 <td>ব্যাক্তিগত নং</td>
 
-<td rowspan="3"
-    style="width:400px;height:100px;">
-
+<td rowspan="3" style="width:400px;height:100px;">
 <div style="
     font-family:monospace;
     font-size:${isSingle ? "20px" : "14px"};
@@ -1665,7 +1330,6 @@ h3{
 ">
 ${sixSailorNo}
 </div>
-
 </td>
 
 <td style="border-right:none;">
@@ -1680,18 +1344,14 @@ ${sixSailorNo}
 
 <tr>
 <td>${singleSailorNumber}</td>
-<td style="text-align:center; border-right:none;">
-${d.gxtime || ""}
-</td>
+<td style="text-align:center; border-right:none;">${d.gxtime || ""}</td>
 </tr>
 
 ${gxRowsHTML}
 
 <tr>
 <td colspan="2"></td>
-<td style="text-align:center; border-right:none;">
-${d.gxDate || ""}
-</td>
+<td style="text-align:center; border-right:none;">${d.gxDate || ""}</td>
 </tr>
 
 </table>
@@ -1699,6 +1359,8 @@ ${d.gxDate || ""}
 ${bottomNoteHTML}
 
 </div>
+
+${secondPageHTML}
 
 </body>
 </html>
