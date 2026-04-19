@@ -8,6 +8,7 @@ class SpecialHeader extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>
         :host {
+          all: initial;
           font-family: Arial, sans-serif;
         }
 
@@ -18,86 +19,97 @@ class SpecialHeader extends HTMLElement {
           left: 0;
           width: 100%;
           height: 60px;
-          background: #222;
+          background: #1e1e2f;
           display: flex;
           align-items: center;
           overflow-x: auto;
           white-space: nowrap;
           z-index: 1000;
+          padding-left: 60px;
         }
 
         .top-item {
           flex: 0 0 auto;
-          width: 180px;
-          height: 40px;
+          width: 160px;
+          height: 38px;
           margin: 0 5px;
-          background: #333;
-          color: aqua;
+          background: #2c2c3e;
+          color: #00e5ff;
           display: flex;
           align-items: center;
           justify-content: center;
           border-radius: 6px;
-          text-transform: uppercase;
-          font-size: 13px;
+          font-size: 12px;
+          transition: 0.3s;
         }
 
         .top-item:hover {
-          background: #555;
-          color: white;
+          background: #00e5ff;
+          color: #000;
         }
 
-        /* ================= MENU BUTTON (ALWAYS VISIBLE) ================= */
+        /* ================= MENU BUTTON ================= */
         .menu-btn {
           position: fixed;
           top: 10px;
           left: 10px;
           z-index: 2000;
-          background: #333;
-          color: white;
-          padding: 10px 15px;
+          background: #00e5ff;
+          color: black;
+          padding: 8px 14px;
           border-radius: 6px;
           cursor: pointer;
-          user-select: none;
-        }
-
-        .menu-btn:hover {
-          background: #444;
+          font-weight: bold;
         }
 
         /* ================= SIDEBAR ================= */
         .sidebar {
           position: fixed;
           top: 0;
-          left: -280px;
+          left: -270px;
           width: 260px;
           height: 100vh;
           background: #111;
           overflow-y: auto;
-          padding-top: 70px;
           transition: 0.3s ease;
           z-index: 1500;
+          padding-top: 60px;
         }
 
-        /* OPEN STATE */
         .sidebar.open {
           left: 0;
+        }
+
+        /* CLOSE BUTTON */
+        .close-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: red;
+          color: white;
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          font-weight: bold;
         }
 
         .menu-item {
           margin: 6px 10px;
           padding: 12px;
           background: #222;
-          color: aqua;
+          color: #00e5ff;
           border-radius: 6px;
-          text-transform: uppercase;
           font-size: 13px;
-          cursor: pointer;
           transition: 0.3s;
         }
 
         .menu-item:hover {
-          background: #444;
-          color: white;
+          background: #00e5ff;
+          color: black;
         }
 
         a {
@@ -109,8 +121,8 @@ class SpecialHeader extends HTMLElement {
         /* ================= RESPONSIVE ================= */
         @media (max-width: 768px) {
           .top-item {
-            width: 140px;
-            font-size: 11px;
+            width: 120px;
+            font-size: 10px;
           }
 
           .sidebar {
@@ -119,7 +131,7 @@ class SpecialHeader extends HTMLElement {
         }
       </style>
 
-      <!-- MENU BUTTON (FIXED ALWAYS VISIBLE) -->
+      <!-- MENU BUTTON -->
       <div class="menu-btn">☰ MENU</div>
 
       <!-- TOP BAR -->
@@ -129,41 +141,47 @@ class SpecialHeader extends HTMLElement {
 
       <!-- SIDEBAR -->
       <div class="sidebar">
+        <div class="close-btn">✖</div>
         ${this.renderSidebar()}
       </div>
     `;
 
-    // TOGGLE LOGIC
     const menuBtn = this.shadowRoot.querySelector(".menu-btn");
     const sidebar = this.shadowRoot.querySelector(".sidebar");
+    const closeBtn = this.shadowRoot.querySelector(".close-btn");
 
+    // OPEN / CLOSE TOGGLE
     menuBtn.addEventListener("click", () => {
       sidebar.classList.toggle("open");
     });
+
+    closeBtn.addEventListener("click", () => {
+      sidebar.classList.remove("open");
+    });
   }
 
-  /* TOP BAR */
+  /* ================= TOP BAR ================= */
   renderTopBar() {
     return Array(12).fill("Bangladesh Navy")
       .map(text => `<div class="top-item">${text}</div>`)
       .join("");
   }
 
-  /* SIDEBAR */
+  /* ================= SIDEBAR LINKS ================= */
   renderSidebar() {
     return `
-      <div class="menu-item"><a href="stateboard.html">Live state board</a></div>
-      <div class="menu-item"><a href="gxmaker.html">genform making</a></div>
-      <div class="menu-item"><a href="index.html">gx book</a></div>
-      <div class="menu-item"><a href="shnshipscompany.html">shn ships company</a></div>
-      <div class="menu-item"><a href="leaverequestform.html">Leave request form</a></div>
-      <div class="menu-item"><a href="victualling.html">Gangway victualling</a></div>
-      <div class="menu-item"><a href="checksheet.html">gangway check book</a></div>
-      <div class="menu-item"><a href="leavedayribook.html">Leave diary book</a></div>
-      <div class="menu-item"><a href="requestconditionn.html">All request condition</a></div>
-      <div class="menu-item"><a href="manualofnavallaw.html">Manual of Naval law</a></div>
-      <div class="menu-item"><a href="part1.html">navy regulation part1</a></div>
-      <div class="menu-item"><a href="part2.html">navy regulation part2</a></div>
+      <div class="menu-item"><a href="./stateboard.html">Live state board</a></div>
+      <div class="menu-item"><a href="./gxmaker.html">genform making</a></div>
+      <div class="menu-item"><a href="./index.html">gx book</a></div>
+      <div class="menu-item"><a href="./shnshipscompany.html">shn ships company</a></div>
+      <div class="menu-item"><a href="./leaverequestform.html">Leave request form</a></div>
+      <div class="menu-item"><a href="./victualling.html">Gangway victualling</a></div>
+      <div class="menu-item"><a href="./checksheet.html">gangway check book</a></div>
+      <div class="menu-item"><a href="./leavedayribook.html">Leave diary book</a></div>
+      <div class="menu-item"><a href="./requestconditionn.html">All request condition</a></div>
+      <div class="menu-item"><a href="./manualofnavallaw.html">Manual of Naval law</a></div>
+      <div class="menu-item"><a href="./part1.html">navy regulation part1</a></div>
+      <div class="menu-item"><a href="./part2.html">navy regulation part2</a></div>
     `;
   }
 }
