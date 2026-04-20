@@ -85,6 +85,8 @@ body, html {
     padding: 12px;
 
     display: flex;
+    flex-wrap: nowrap; /* 🔥 সবসময় এক লাইনে */
+
     gap: 10px;
 
     height: 30vh;
@@ -96,6 +98,8 @@ body, html {
 
     box-sizing: border-box;
     align-items: stretch;
+
+    overflow-x: auto; /* 🔥 ছোট হলে scroll */
 }
 
 /* ================= ALL CHILD BASE ================= */
@@ -103,39 +107,45 @@ body, html {
     box-sizing: border-box;
     border-radius: 10px;
     padding: 8px;
+
+    flex-shrink: 1; /* 🔥 ছোট হতে পারবে */
+    min-width: 60px; /* 🔥 একদম collapse হবে না */
 }
 
 /* ================= 1. EDIT SECTION ================= */
 .edpr {
-    flex: 0.4;
+    flex: 0.5;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
     background: #ffeaa7;
 }
 
+/* EDIT BUTTON */
 .editb {
     background: #0984e3;
     color: white;
-    padding: 5px;
+    padding: 6px;
     border-radius: 6px;
     cursor: pointer;
     text-align: center;
+    font-size: 12px;
 }
 
 .edpr button {
     background: #2d3436;
     color: white;
     border: none;
-    padding: 5px;
+    padding: 6px;
     border-radius: 6px;
     cursor: pointer;
+    font-size: 12px;
 }
 
 /* ================= 2. GX INFO ================= */
 .gxContainer {
-    flex: 0.5;
+    flex: 0.6;
     background: #74b9ff;
     display: flex;
     flex-direction: column;
@@ -143,42 +153,43 @@ body, html {
     text-align: center;
     font-weight: bold;
     color: black;
+    font-size: 13px;
 }
 
 /* ================= 3. ONR TEXTAREA ================= */
 .onr {
-    flex: 1.6;
+    flex: 1.5;
     background: #fff3b0;
     border: none;
-    resize: none;
-    padding: 10px;
-    font-size: 14px;
+    padding: 8px;
+    font-size: 13px;
     border-radius: 10px;
     resize: both;
+    min-width: 100px;
 }
 
 /* ================= 4. WEF INFO ================= */
 .wefContainer {
-    flex: 0.5;
+    flex: 0.6;
     background: #55efc4;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     font-weight: bold;
+    font-size: 13px;
 }
 
 /* ================= 5. MAIN TEXTAREA ================= */
 .gxtext {
-    flex: 3;
+    flex: 2.5;
     background: #fab1a0;
     border: none;
-    resize: none;
-    padding: 10px;
-    font-size: 14px;
+    padding: 8px;
+    font-size: 13px;
     border-radius: 10px;
     resize: both;
-
+    min-width: 150px;
 }
 
 /* ================= HOVER EFFECT ================= */
@@ -187,21 +198,59 @@ body, html {
     transition: 0.2s ease;
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= DELETE BUTTON ================= */
+.deleteBtn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.deleteBtn:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+}
+
+/* ================= EDIT BUTTON STYLE ================= */
+.editb {
+    width: 60px;
+    height: 35px;
+    background: cadetblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.editb:hover {
+    background: #596FB7;
+    color: chartreuse;
+}
+
+/* ================= RESPONSIVE (KEEP ROW) ================= */
 @media (max-width: 768px) {
+
     .items {
-        flex-direction: column;
         height: auto;
+        min-height: 180px;
     }
 
-    .edpr,
-    .gxContainer,
-    .wefContainer,
-    .onr,
+    .items > * {
+        font-size: 11px;
+        padding: 5px;
+    }
+
     .gxtext {
-        flex: none;
-        width: 100%;
-        height: auto;
+        min-width: 120px;
+    }
+
+    .onr {
+        min-width: 80px;
     }
 }
 /* GX + WEF containers */
@@ -400,19 +449,125 @@ textarea {
 
 
 
-<div class="maiContainer">
+<div class="maiContainer" style="
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+">
 
-   <div class="first">
-    <div>বাংলাদেশ নৌবাহিনী</div>
-    <div>বাঃ নৌঃ জাঃ পেকুয়া</div>
-    <div>জেন ফর্ম বুক</div>
-    <div>তারিখঃ <span id="todayDate"></span></div>
+   <div class="first" style="
+        width: 90%;
+        max-width: 500px;
+        padding: 20px;
+
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        color: white;
+
+        border-radius: 15px;
+        text-align: center;
+
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+
+        transition: 0.3s;
+   "
+
+   onmouseover="this.style.transform='scale(1.03)'"
+   onmouseout="this.style.transform='scale(1)'"
+   >
+
+        <div style="font-size: 22px; font-weight: bold; letter-spacing: 1px;">
+            বাংলাদেশ নৌবাহিনী
+        </div>
+
+        <div style="font-size: 18px; margin-top: 5px; opacity: 0.9;">
+            বাঃ নৌঃ জাঃ পেকুয়া
+        </div>
+
+        <div style="
+            font-size: 20px;
+            margin-top: 10px;
+            font-weight: bold;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 0;
+            letter-spacing: 1px;
+        ">
+            জেন ফর্ম বুক
+        </div>
+
+        <div style="margin-top: 10px; font-size: 16px;">
+            তারিখঃ 
+            <span id="todayDate" style="
+                font-weight: bold;
+                color: #00f2fe;
+            "></span>
+        </div>
+
+   </div>
+
 </div>
 
 
-<div class="allbtnclick">  
-    <input type="search" id="searchInput" oninput="searchObjects()" placeholder="Find your GX her......">
-    <button id="openPopupButton">CREATE GENFORM</button>
+<div class="allbtnclick" style="
+    width: 90%;
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 15px;
+    background: linear-gradient(135deg,#2c3e50,#4ca1af);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+">
+
+    <!-- SEARCH INPUT -->
+    <input 
+        type="search" 
+        id="searchInput" 
+        oninput="searchObjects()" 
+        placeholder="Find your GX here..."
+        
+        style="
+        flex: 1;
+        height: 45px;
+        padding: 0 15px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        transition: 0.3s;
+        "
+
+        onfocus="this.style.boxShadow='0 0 10px #00f2fe'"
+        onblur="this.style.boxShadow='none'"
+    >
+
+    <!-- BUTTON -->
+    <button 
+        id="openPopupButton"
+
+        style="
+        width: 220px;
+        height: 45px;
+        border-radius: 8px;
+        border: none;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        color: white;
+        background: linear-gradient(135deg,#28a745,#1e7e34);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        transition: 0.3s;
+        "
+
+        onmouseover="this.style.transform='scale(1.05)'; this.style.background='linear-gradient(135deg,#1e7e34,#145c28)'"
+        onmouseout="this.style.transform='scale(1)'; this.style.background='linear-gradient(135deg,#28a745,#1e7e34)'"
+    >
+        CREATE GENFORM
+    </button>
+
 </div>
 
 
@@ -425,123 +580,221 @@ textarea {
 <div id="editModal">
     <style>
         /* ✅ Modal */
-        #editModal {
-            display: none;
-            position: fixed;
-            top: 80%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 500px;
-            height: 85vh;
-            overflow-y: auto;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border: 1px solid #ccc;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 9999;
-            border-radius: 10px;
-              #editModal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 500px;
-            max-height: 100vh;
-            overflow-y: auto;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border: 1px solid #ccc;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 9999;
-            border-radius: 10px;
-            max-height: 90vh;
-            overflow-y: auto;
-            
-        
-            
-        }
+       /* ===== MODAL CONTAINER ===== */
+#editModal {
+    display: none;
+    position: fixed;
 
-        /* section spacing */
-        #editModal .section {
-            margin-bottom: 15px;
-        }
+    /* 🔥 নিচে নামানো হয়েছে */
+    top: 70%;  
 
-        #editModal input,
-        #editModal textarea,
-        #editModal select {
-            width: 100%;
-            box-sizing: border-box;
-            margin-top: 5px;
-        }
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
 
-        #editModal textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
+    width: 92%;
+    max-width: 520px;
+    height: 85vh;
+    overflow-y: auto;
 
-        /* CLOSE BUTTON */
-        #close {
-            position: sticky;
-            top: 0;
-            float: right;
-            cursor: pointer;
-            font-size: 18px;
-            background: #ff4d4d;
-            color: white;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            font-weight: bold;
-            z-index: 20;
-            transition: 0.3s;
-        }
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
 
-        #close:hover {
-            background: red;
-            transform: scale(1.1);
-        }
+    padding: 22px;
+    border-radius: 14px;
 
-        /* buttons */
-        #editModal button {
-            width: 100%;
-            margin-top: 10px;
-            height: 40px;
-            border-radius: 5px;
-        }
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
 
-        /* ✅ 🔥 ONLY SAVE BUTTON SMALL FIX */
-        #saveChangesButton {
-            position: sticky;
-            bottom: 0;
-            background: #28a745;
-            color: white;
-            font-weight: bold;
-            z-index: 10;
-            border: none;
+    z-index: 9999;
 
-            width: 100px;      /* 🔥 ছোট করা হয়েছে */
-            height: 32px;      /* 🔥 ছোট height */
-            font-size: 14px;   /* 🔥 ছোট font */
-            margin: 10px auto; /* center */
-            display: block;
-            border-radius: 6px;
-        }
+    transition: 0.3s ease;
+}
 
-        #saveChangesButton:hover {
-            background: #1e7e34;
-        }
+/* Smooth open feel */
+#editModal.show {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* ===== SECTION ===== */
+#editModal .section {
+    margin-bottom: 16px;
+    margin-top: 0px;
+}
+
+/* ===== INPUT / TEXTAREA / SELECT ===== */
+#editModal input,
+#editModal textarea,
+#editModal select {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px 12px;
+
+    border-radius: 8px;
+    border: 1px solid #ccc;
+
+    font-size: 14px;
+    outline: none;
+
+    transition: 0.25s;
+}
+
+/* focus effect */
+#editModal input:focus,
+#editModal textarea:focus,
+#editModal select:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76,175,80,0.4);
+}
+
+/* textarea */
+#editModal textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+/* ===== LABEL ===== */
+#editModal label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #222;
+    text-transform: uppercase;
+}
+
+/* ===== CLOSE BUTTON ===== */
+#close {
+    position: sticky;
+    top: 0;
+    float: right;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    background: linear-gradient(135deg, #ff4d4d, #cc0000);
+    color: white;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+    transition: 0.3s;
+}
+
+#close:hover {
+    transform: scale(1.15) rotate(90deg);
+    background: red;
+}
+
+/* ===== BUTTON BASE ===== */
+#editModal button {
+    width: 100%;
+    height: 42px;
+    border-radius: 8px;
+    border: none;
+
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+/* ===== SAVE BUTTON ===== */
+#saveChangesButton {
+    position: sticky;
+    bottom: 0;
+
+    width: 120px;
+    margin: 15px auto;
+    display: block;
+
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+    color: white;
+
+    box-shadow: 0 6px 15px rgba(40,167,69,0.4);
+}
+
+/* hover effect */
+#saveChangesButton:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: linear-gradient(135deg, #1e7e34, #145c28);
+}
+
+/* ===== SCROLLBAR ===== */
+#editModal::-webkit-scrollbar {
+    width: 6px;
+}
+
+#editModal::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+#editModal::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* ===== HEADER CONTAINER ===== */
+.modal-header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* ===== LOGO DESIGN ===== */
+.logo {
+    width: 80px;
+    height: 80px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    padding: 5px;
+
+    background: rgb(75, 169, 212);
+
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+
+    transition: 0.3s;
+    margin-left: 50PX;
+}
+
+/* hover effect */
+.logo:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+
+
+/* ===== TITLE ===== */
+.modal-header h2 {
+    margin-top: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+
+    color: #222;
+    text-transform: uppercase;
+}
     </style>
 
     <!-- ❌ CLOSE BUTTON -->
     <span id="close">&#10006;</span>
 
-    <h2>CREATE GX</h2>
+    <div class="modal-header">
+    <img src="logo/navy1.png" class="logo" alt="logo">
+    <h2>CREATE YOUR GX</h2>
+</div>
 
     <div class="section">
         <label>Gx Number:</label><br>
@@ -572,7 +825,7 @@ textarea {
     </div>
 
     <div class="section">
-        <label>Select an option:</label>
+        <label>Select an GX:</label>
         <select id="selectOption" onchange="updateTextArea()">
             <option value="TO RUN">TO RUN</option>
             <option value="TO DRAF">TO DRAF</option>
@@ -854,7 +1107,7 @@ let displayData = () => {
     <button 
         onclick="editButtonClick(${i})"
         style="
-            background: yellow;
+            background: Aquamarine;
             color: black;
             border: 2px solid #333;
             padding: 6px 10px;
@@ -863,7 +1116,7 @@ let displayData = () => {
             transition: 0.3s;
         "
         onmouseover="this.style.background='#ffe066'; this.style.transform='scale(1.05)'"
-        onmouseout="this.style.background='yellow'; this.style.transform='scale(1)'"
+        onmouseout="this.style.background='Aquamarine'; this.style.transform='scale(1)'"
     >
         ✎ Edit
     </button>
@@ -905,17 +1158,24 @@ let displayData = () => {
 </div>
 
             <!-- GX INFO -->
-            <div class="gxContainer">
-                <div>${element.gxNo}</div>
-                <div>${element.gxDate}</div>
+            <div class="gxContainer" style="display:flex; flex-direction:column; text-align:center;">
+    
+                <div style="border-bottom:2px solid black; padding-bottom:5px; margin-bottom:5px;">
+                    ${element.gxNo}
+                </div>
+
+                <div>
+                    ${element.gxDate}
+                </div>
+
             </div>
 
             <!-- ONR -->
             <textarea class="onr">${element.onr}</textarea>
 
             <!-- WEF -->
-            <div class="wefContainer">
-                <div>${element.gxtime}</div>
+            <div class="wefContainer" style="display:flex; flex-direction:column; text-align:center;">
+                <div style="border-bottom:2px solid black; padding-bottom:5px; margin-bottom:5px;">${element.gxtime}</div>
                 <div>${element.wefdate}</div>
             </div>
 
@@ -974,18 +1234,27 @@ function editButtonClick(index) {
 
 
 function deleteItem(index) {
-    let userData = JSON.parse(localStorage.getItem("gxData")) || [];
+    let confirmDelete = confirm("⚠️ আপনি কি নিশ্চিতভাবে এই আইটেমটি ডিলিট করতে চান?");
 
-    // remove item
-    userData.splice(index, 1);
+    // যদি user OK চাপায়
+    if (confirmDelete) {
+        let userData = JSON.parse(localStorage.getItem("gxData")) || [];
 
-    // update localStorage
-    localStorage.setItem("gxData", JSON.stringify(userData));
+        // remove item
+        userData.splice(index, 1);
 
-    // re-render UI
-    displayData();
+        // update localStorage
+        localStorage.setItem("gxData", JSON.stringify(userData));
+
+        // re-render UI
+        displayData();
+
+        alert("✅ আইটেম সফলভাবে ডিলিট হয়েছে!");
+    } else {
+        // Cancel করলে কিছুই হবে না
+        alert("❌ ডিলিট বাতিল করা হয়েছে");
+    }
 }
-
 
 
 
@@ -1021,50 +1290,103 @@ function saveChanges(index) {
        
 closePopup()
 
-
 function searchObjects() {
-    var searchInput = document.getElementById('searchInput').value.toLowerCase();
-    var mainContainer = document.querySelector('.main');
+    let searchInput = document.getElementById('searchInput').value.toLowerCase();
+    let mainContainer = document.querySelector('.main');
 
-    // Clear previous search results
-    mainContainer.innerHTML = '';
+    let storedData = JSON.parse(localStorage.getItem('gxData')) || [];
 
-    // Retrieve data from local storage
-    var storedData = JSON.parse(localStorage.getItem('gxData')) || [];
+    // filter with original index
+    let searchResults = storedData
+        .map((item, index) => ({ ...item, originalIndex: index }))
+        .filter(obj => {
+            return Object.values(obj).some(val =>
+                val.toString().toLowerCase().includes(searchInput)
+            );
+        });
 
-    // Filter objects based on any property and limit to elements inside the 'main' class
-    var searchResults = storedData.filter(function (obj) {
-        for (var key in obj) {
-            if (obj.hasOwnProperty(key)) {
-                // Check if the property value includes the search input
-                if (obj[key].toString().toLowerCase().includes(searchInput)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    });
+    mainContainer.innerHTML = "";
 
-    // Display search results
-    searchResults.forEach(function (result) {
-        var itemsContainer = document.createElement('div');
-        itemsContainer.classList.add('items');
+    searchResults.forEach((element) => {
 
-        itemsContainer.innerHTML = `
-            <span onclick='editButtonClick(${searchResults.indexOf(result)})' class='editb'>&#x270E;</span>
-            <div class="gxContainer"> 
-                <div>${result.gxNo}</div>
-                <div>${result.gxDate}</div>
+        let itemHTML = `
+        <div class="items">
+
+            <!-- ACTION PANEL (same as displayData) -->
+            <div class="edpr">
+
+                <button onclick="editButtonClick(${element.originalIndex})"
+                    style="
+                        background: #ffc107;
+                        border: 1px solid #e0a800;
+                        padding: 6px 10px;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        margin-bottom:5px;
+                    "
+                    onmouseover="this.style.background='#e0a800'"
+                    onmouseout="this.style.background='#ffc107'"
+                >
+                    ✎ Edit
+                </button>
+
+                <button onclick="deleteItem(${element.originalIndex})"
+                    style="
+                        background: #dc3545;
+                        color: white;
+                        border: 1px solid #b02a37;
+                        padding: 6px 10px;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        margin-bottom:5px;
+                    "
+                    onmouseover="this.style.background='#b02a37'"
+                    onmouseout="this.style.background='#dc3545'"
+                >
+                    🗑 Delete
+                </button>
+
+                <button onclick="printContainer(${element.originalIndex})"
+                    style="
+                        background: #28a745;
+                        color: white;
+                        border: 1px solid #1e7e34;
+                        padding: 6px 10px;
+                        border-radius: 6px;
+                        cursor: pointer;
+                    "
+                    onmouseover="this.style.background='#1e7e34'"
+                    onmouseout="this.style.background='#28a745'"
+                >
+                    Print
+                </button>
+
             </div>
-            <textarea>${result.onr}</textarea>
-            <div class="wefContainer">  
-                <div>${result.wefdate}</div>
-                <div>${result.gxtime}</div>
+
+            <!-- GX INFO -->
+            <div class="gxContainer">
+                <div style="border-bottom:2px solid #333; padding-bottom:5px;">
+                    ${element.gxNo}
+                </div>
+                <div>${element.gxDate}</div>
             </div>
-            <textarea>${result.gxtext}</textarea>
+
+            <!-- ONR -->
+            <textarea class="onr">${element.onr}</textarea>
+
+            <!-- WEF -->
+            <div class="wefContainer">
+                <div>${element.gxtime}</div>
+                <div>${element.wefdate}</div>
+            </div>
+
+            <!-- GX TEXT -->
+            <textarea class="gxtext">${element.gxtext}</textarea>
+
+        </div>
         `;
 
-        mainContainer.appendChild(itemsContainer);
+        mainContainer.innerHTML += itemHTML;
     });
 }
 
