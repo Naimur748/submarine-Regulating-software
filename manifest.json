@@ -1,0 +1,20 @@
+{
+  "name": "GX Application",
+  "short_name": "GX App",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#222222",
+  "theme_color": "#222222",
+  "icons": [
+    {
+      "src": "navy1.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "navy1.png",
+      "sizes": "512x512",
+      "type": "logo/navy1.png"
+    }
+  ]
+}
