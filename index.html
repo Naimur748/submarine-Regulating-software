@@ -1202,17 +1202,15 @@ let displayData = () => {
        
 
      
-
-// Function to handle edit button click
+// EDIT BUTTON CLICK
 function editButtonClick(index) {
 
     document.getElementById("saveChangesButton").style.display = "block";
-    // Retrieve all data from local storage
+
     var userData = JSON.parse(localStorage.getItem("gxData")) || [];
 
-    // If there is data at the specified index
     if (userData[index]) {
-        // Populate form fields with values for editing
+
         document.getElementById("input1").value = userData[index].gxNo;
         document.getElementById("input2").value = userData[index].gxDate;
         document.getElementById("input3").value = userData[index].onr;
@@ -1220,23 +1218,34 @@ function editButtonClick(index) {
         document.getElementById("gxdate").value = userData[index].wefdate;
         document.getElementById("gxtext").value = userData[index].gxtext;
 
-        // Display the modal
         document.getElementById("editModal").style.display = "block";
 
-        // Save changes when the "Save Changes" button in the modal is clicked
         document.getElementById("saveChangesButton").onclick = function () {
             saveChanges(index);
         };
+
     } else {
         alert("Data not found at index " + index);
     }
-
-    
-    document.getElementById("close").onclick = function () {
-     document.getElementById("saveChangesButton").style.display = "none";
-   
-};
 }
+
+
+
+
+document.getElementById("close").onclick = function () {
+    document.getElementById("editModal").style.display = "none";
+
+    // optional cleanup (best practice)
+    document.getElementById("saveChangesButton").style.display = "none";
+
+    document.getElementById("input1").value = "";
+    document.getElementById("input2").value = "";
+    document.getElementById("input3").value = "";
+    document.getElementById("gxtext").value = "";
+};
+
+
+
 
 
 
