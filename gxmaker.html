@@ -3,592 +3,779 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GX Form - Bangladesh Navy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #f0f2f5;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1d29;
+            --text-secondary: #6b7280;
+            --accent-color: #3b82f6;
+            --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f2f5 0%, #e8ecf1 100%);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 15px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Logo Section */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .logo-section img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .logo-section h1 {
+            font-size: 1.5rem;
+            margin-top: 8px;
+            color: var(--accent-color);
+        }
+
+        /* Search Section */
+        .search-section {
+            background: var(--bg-secondary);
+            padding: 10px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 12px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .search-input-group {
+            flex: 1;
+        }
+
+        .search-input-group label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+        }
+
+        .search-input-group input {
+            width: 100%;
+            padding: 6px 8px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            background: var(--bg-primary);
+            font-size: 0.8rem;
+        }
+
+        .search-input-group input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .btn-search, .btn-clear {
+            padding: 6px 12px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            cursor: pointer;
+            white-space: nowrap;
+            align-self: flex-end;
+        }
+
+        .btn-clear {
+            background: #ef4444;
+        }
+
+        /* Alerts */
+        #alertContainer {
+            margin-bottom: 10px;
+        }
+
+        .alert {
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .alert-success {
+            background: rgba(16, 185, 129, 0.1);
+            color: #059669;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .alert-error {
+            background: rgba(239, 68, 68, 0.1);
+            color: #dc2626;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        /* Main Form */
+        .form-wrapper {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 12px;
+            box-shadow: var(--shadow-md);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        /* Left Column */
+        .form-left {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Right Column */
+        .form-right {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Form Group */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 6px 8px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            background: var(--bg-primary);
+            font-family: inherit;
+            font-size: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: var(--bg-secondary);
+        }
+
+        /* Textarea for GX Info */
+        #govtText, #gxTypeTextArea {
+            resize: vertical;
+            min-height: 100px;
+            font-size: 0.7rem;
+            line-height: 1.3;
+        }
+
+        /* Select with Add */
+        .select-with-add {
+            display: flex;
+            gap: 5px;
+        }
+
+        .select-with-add select {
+            flex: 1;
+        }
+
+        .btn-add {
+            padding: 6px 8px;
+            background: #10b981;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.7rem;
+            cursor: pointer;
+        }
+
+        .btn-add:hover {
+            background: #059669;
+        }
+
+        /* Row Groups */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .form-row.full {
+            grid-template-columns: 1fr;
+        }
+
+        /* Right Column Groups */
+        .right-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .right-row.full {
+            grid-template-columns: 1fr;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 8px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+            grid-column: 1 / -1;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-secondary);
+            padding: 15px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            max-width: 300px;
+            width: 90%;
+        }
+
+        .modal-header {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .modal-body input {
+            width: 100%;
+            padding: 6px 8px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            background: var(--bg-primary);
+            font-family: inherit;
+            font-size: 0.75rem;
+            margin-bottom: 10px;
+        }
+
+        .modal-body input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 8px;
+        }
+
+        .modal-footer button {
+            flex: 1;
+            padding: 6px;
+            border: none;
+            border-radius: 6px;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.7rem;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row, .right-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <style>
-        *{
-              /* outline: 1px solid red;   */
-        }
-        html,body{
-            background-color: #CE5A67;
-            margin: 0px;
-            padding: 0px;
-        }
-            
-    
-        .maincontainer{
-           
-            display: flex;
-            position: relative;
-            text-transform: uppercase;
-            font-weight: bolder;
-            padding: 20px;
-        }
-        .section{
-            position: relative;
-            margin-top: 5px;
-        }
-        input{
-            width: 300px;
-            height: 35px;
-            border-radius: 10px;
-            margin-top: 0px;
-        }
-        label{
-            height: 30px;
-            font-size: 20px;
-            margin-top: 0px;
-        }
-        input:hover{
-            border:2px solid blue;
-        }
-        select{
-            width: 80px;
-            height: 30px;
-            border-radius: 5px;
-            margin-left: 30px;
-            text-transform: uppercase;
-        }
-       
-        
-        input[type="text"]{
-            font-size: 18px;
-            color:black ;
-        }
-       
-        .secondhead{
-            text-transform: uppercase;
-            text-align: center;
-            margin-left: 0px;
-    
-         
-        }
-        .buttona{
-            text-decoration: none;
-            width: 250px;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 20px;
-            border-radius: 10px;
-            background-color: #4F709C;
-            margin-left: 100px;
-            position: relative;
-            color: black;
-            padding: 10px;
-
-
-        }
-        .end{
-           margin-top: 10px;
-           align-items: center;
-           margin-left: 330px;
-           font-size: 20px;
-           text-transform: uppercase;
-           border-radius: 7px;
-           padding: 5px;
-           width: 150px;
-           margin-bottom: 20px;
-           
-        }
-        .end:hover{
-            background-color: #4F709C;
-            color:black;
-        }
-        .gxinput{
-            margin-top: 5px;
-        }
-        option{
-            text-transform: uppercase;
-        }
-        img{
-            width: 100px;
-        }
-        
-        .second-head{
-            width: 100%;
-            font-size: 30px;
-            margin-top: 10px;
-            margin-left: 10px;
-            text-align: center;
-            text-transform: uppercase;
-            font-weight: bolder;
-        }
-        .thirdhead{
-           margin-left:340px;
-            display: inline-block;
-        }
-       .last{
-        margin-top: 1000px;
-        position: relative;
-        font-size: 40px;
-        text-transform: uppercase;
-        color: #27374D;
-        text-align: center;
-        margin-left: 50px;
-        
-       }
-       .main-container1{
-          position: absolute;
-          margin-top: 50px;
-          margin-left: 400px;
-          width: 760px;
-          border-radius: 20px;
-          background-color: cadetblue;
-          box-shadow: 0px 0px 18px 7px rgba(0,0,0,0.1);
-       }
-       .first-container-1{
-          
-        width: 680px;
-       }
-       .second-container2{
-        width: 470px;
-       }
-       .second-container2>div{
-        margin-top: 10px;
-       }
-       #gxtext{
-        min-width: 350px;
-        min-height: 180px;
-        border-radius: 8px;
-        font-size: 15px;
-
-       }
-
-
-
-        
-
-        
-    </style>
-
-<special-header></special-header>
+    <special-header></special-header>
 
 
 <script src="./headerfotermanager.js"></script>
 
-    
-
-<div class="main-container1">
-
-    
-        <div class="thirdhead">
-            <img src="logo/navy1.png" alt="">
-       </div>
-    
-        <div class="second-head">create your genform <br>
-            b.n.s sheikh hsina
-        </div>
-         
- 
-
-    <div class="maincontainer">
-
-        <!-- first container -->
- 
-        <div class="first-container-1">
-        
-         
-         
-      
-
-         <div class="section" style="display: none;">
-            <label ></label>
-            <br>
-            <input type="text" id="input1"> 
-        </div>
-         
- 
-         <div class="section">
-            <button onclick="searchData()">Search</button>
-             <label for="input2">Official number:</label>
-             <br>
-             <input type="text" id="input2">
-     
-         </div>
-        
- 
-         <div class="section">
-             <label for="input3">Name:</label>
-             <br>
-             <input type="text" id="input3">
-     
-         </div>
-
-         <div class="section">
-            <label for="input2">Rank</label>
-            <br>
-            <input type="text" id="input4">
-    
-        </div>
-        
-         <div class="section">
- 
-             <label for="">Select your department:</label>
-             <br>
-             
-         <select name="" id="">
-             <option value="">Seman</option>
-             <option value="">Communication</option>
-             <option value="">Regulating</option>
-             <option value="">Enginearing</option>
-             <option value="">Electrical</option>
-             <option value="">Writer</option>
-             <option value="">Store</option>
-             <option vlue="m">Medical</option>
-             <option value="">Topas</option>
-            </select>
- 
-         </div>
-         
- 
-       
-         <div class="section">
-            <label for="gxtime">Report Time:</label>
-           
-            <select id="gxtime">
-                <option value="সকাল">সকাল</option>
-                <option value="বিকাল">বিকাল</option>
-            </select>
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <img src="logo/navy1.png" alt="Logo">
+            <h1>GX Form</h1>
         </div>
 
+        <!-- Alerts -->
+        <div id="alertContainer"></div>
 
-        <div class="section">
-            <label for="">WEF Date:</label>
-            <br>
-            <input type="text" id=" gxdate">
-
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-input-group">
+                <label>Search Official No</label>
+                <input type="text" id="searchOfficialNo" placeholder="OFF-12345">
+            </div>
+            <button class="btn-search" onclick="searchData()">Search</button>
+            <button class="btn-clear" onclick="clearForm()">Clear</button>
         </div>
 
+        <!-- Main Form -->
+        <form class="form-wrapper" id="gxForm">
+            <!-- LEFT COLUMN -->
+            <div class="form-left">
+                <!-- GX Number & Date -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>GX Number *</label>
+                        <input type="text" id="gxNumber" required>
+                    </div>
+                    <div class="form-group">
+                        <label>GX Date *</label>
+                        <input type="date" id="gxDate" required>
+                    </div>
+                </div>
 
+                <!-- Official Info TextArea -->
+                <div class="form-group">
+                    <label>Official Info (No, Name, Rank)</label>
+                    <textarea id="govtText" placeholder="Official Number&#10;Name&#10;Rank"></textarea>
+                </div>
 
+                <!-- Division & Department -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Division</label>
+                        <div class="select-with-add">
+                            <select id="divisionSelect">
+                                <option value="">Select</option>
+                            </select>
+                            <button type="button" class="btn-add" onclick="openDivisionModal()">+</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Department</label>
+                        <div class="select-with-add">
+                            <select id="departmentSelect">
+                                <option value="">Select</option>
+                            </select>
+                            <button type="button" class="btn-add" onclick="openDepartmentModal()">+</button>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- WEF Time & Date -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>WEF Time</label>
+                        <select id="wefTime">
+                            <option value="">Select</option>
+                            <option value="সকাল">সকাল</option>
+                            <option value="বিকাল">বিকাল</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>WEF Date *</label>
+                        <input type="date" id="wefDate" required>
+                    </div>
+                </div>
 
-        <div class="section">
-            <label for="selectOption"> gx type:</label>
-  <select name="" id="selectOption" onchange="updateTextArea()">
-    <option value="TO DRAF">TO DRAF</option>
-    <option value="EX DRAF">EX DRAF</option>
-    <option value="EX LEAVE">EX LEAVE</option>
-    <option value="TO LEAVE">TO LEAVE</option>
-    <option value="TO RL">TO RL</option>
-    <option value="TO TY">TO TY</option>
-    <option value="EX TY">EX TY</option>
-    <option value="TO ADMIT">TO ADMIT</option>
-    <option value="EX ADMIT">EX ADMIT</option>
-    <option value="TO RUN">TO RUN</option>
-    <option value="EX RUN">EX RUN</option>
-    <option value="TO MLR">TO MLR</option>
-    <option value="EX MLR">EX MLR</option>
-    <option value="TO VICT">TO VICT</option>
-    <option value="EX VICT">EX VICT</option>
-  </select>
+                <!-- GX Type Selection -->
+                <div class="form-group">
+                    <label>GX Type</label>
+                    <select id="gxTypeSelect" onchange="updateGXTextArea()">
+                        <option value="">Select GX Type</option>
+                        <option value="TO DRAF">TO DRAF</option>
+                        <option value="EX DRAF">EX DRAF</option>
+                        <option value="EX LEAVE">EX LEAVE</option>
+                        <option value="TO LEAVE">TO LEAVE</option>
+                        <option value="TO RL">TO RL</option>
+                        <option value="TO TY">TO TY</option>
+                        <option value="EX TY">EX TY</option>
+                        <option value="TO ADMIT">TO ADMIT</option>
+                        <option value="EX ADMIT">EX ADMIT</option>
+                        <option value="TO RUN">TO RUN</option>
+                        <option value="EX RUN">EX RUN</option>
+                        <option value="TO MLR">TO MLR</option>
+                        <option value="EX MLR">EX MLR</option>
+                        <option value="TO VICT">TO VICT</option>
+                        <option value="EX VICT">EX VICT</option>
+                    </select>
+                </div>
 
-  
-        </div>
+                <!-- GX Type TextArea -->
+                <div class="form-group">
+                    <label>GX Template</label>
+                    <textarea id="gxTypeTextArea" placeholder="Select GX Type above..."></textarea>
+                </div>
+            </div>
 
-        <div class="section">
-            <label for="">edit your gx</label><br>
-            <textarea name="" id="gxtext" cols="30" rows="10">
+            <!-- RIGHT COLUMN -->
+            <div class="form-right">
+                <!-- Part-II & GCB -->
+                <div class="right-row">
+                    <div class="form-group">
+                        <label>Part-II</label>
+                        <input type="text" id="partII">
+                    </div>
+                    <div class="form-group">
+                        <label>GCB</label>
+                        <input type="text" id="gcb">
+                    </div>
+                </div>
 
-            </textarea>
-        </div>
+                <!-- ID Card & Blood Group -->
+                <div class="right-row">
+                    <div class="form-group">
+                        <label>ID Card No</label>
+                        <input type="text" id="idCardNo">
+                    </div>
+                    <div class="form-group">
+                        <label>Blood Group</label>
+                        <select id="bloodGroup">
+                            <option value="">Select</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                        </select>
+                    </div>
+                </div>
 
+                <!-- Mobile & MLR/VIC -->
+                <div class="right-row">
+                    <div class="form-group">
+                        <label>Mobile No</label>
+                        <input type="tel" id="mobileNumber" placeholder="+880">
+                    </div>
+                    <div class="form-group">
+                        <label>MLR/VIC</label>
+                        <input type="text" id="mlrVic">
+                    </div>
+                </div>
 
-        </div>
- 
- 
- 
- <!-- second container -->
- 
- <div class="second-container2">
-     
-     
-    <div class="section">
-        <label for="input4">Part-ii:</label>
-        <br>
-        <input type="text" id="input5"> 
+                <!-- Date of Joining -->
+                <div class="form-group">
+                    <label>Date of Joining</label>
+                    <input type="date" id="dateJoiningShip">
+                </div>
+
+                <!-- Remarks -->
+                <div class="form-group">
+                    <label>Remarks</label>
+                    <input type="text" id="remarks">
+                </div>
+
+                <!-- Submit Button -->
+                <button type="button" class="submit-btn" onclick="submitForm()">Submit & Save</button>
+            </div>
+        </form>
     </div>
-    
-     
- 
-     <div class="section">
-         <label for="input5">gcb:</label>
-         <br>
-         <input type="text" id="input6">
- 
-     </div>
-    
- 
-     <div class="section">
-         <label for="input6">id card no:</label>
-         <br>
-         <input type="text" id="input7">
- 
-     </div>
-    
-    
-     
- 
-     <div class="section">
-         <label for="">Date of joining ship:</label>
-         <br>
-         <input type="text" placeholder="Enter your ship name" id="input8">
-         
-         <br>
 
-         <label for="input8">Blood group</label>
-         <br>
-        <input type="text" id="input9">
-        <br>
-     <select name="" id="">
-       
-       
-            <option value="">B+(ve)</option>
-            <option value="">B-</option>
-            <option value="">O(ve)</option>
-            <option value="">AB+(ve)</option>
-            <option value="">O-(ve)</option>
-            <option value=""></option>
-            <option value=""></option>
-         
-         
-        </select>
- 
-     </div>
- 
- 
- 
-     <div class="section">
-         <label for="input9">Mobile number:</label>
-         <br>
-         <input type="text" name="" id="input10">
-       
- <br>
-         
-     </div>
-   
-    
-     <div class="section">
-         <label for="input10">MLR/VIC:</label>
-         <br>
-         <input type="text"  id="input11">
- 
-     </div>
-
-     <div class="section">
-        <label for="input11">Remarks:</label>
-        <br>
-        <input type="text"  id="input12">
-
+    <!-- Division Modal -->
+    <div id="divisionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">Add Division</div>
+            <div class="modal-body">
+                <input type="text" id="divisionInput" placeholder="Division name">
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="addDivision()">Add</button>
+                <button class="btn-secondary" onclick="closeDivisionModal()">Cancel</button>
+            </div>
+        </div>
     </div>
-    
-     
- 
- </div>
- 
- 
- 
-     </div>
 
-     <button class="end" onclick="submitDataAndNavigate(); saveData();">
-            submit
-     </button>
+    <!-- Department Modal -->
+    <div id="departmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">Add Department</div>
+            <div class="modal-body">
+                <input type="text" id="departmentInput" placeholder="Department name">
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="addDepartment()">Add</button>
+                <button class="btn-secondary" onclick="closeDepartmentModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
 
-</div>
+    <script>
+        const defaultDivisions = ['Maritime', 'Engineering', 'Logistics', 'Communication', 'Medical'];
+        const defaultDepartments = ['Seaman', 'Communication', 'Regulating', 'Engineering', 'Electrical', 'Writer', 'Store', 'Medical', 'Training'];
 
+        const gxTemplates = {
+            'TO DRAF': 'ড্রাফটিং আথরিটি পত্র নং ২৩,০২,২৬২৬,১২৮ তাং ইং মোতাবেক বাঃ নৌঃ জাঃ বদলি করা হইল।',
+            'EX DRAF': 'বা নৌ জা - হইতে বদলি আসিল। বা নৌ জা - নৌ নং - তাং - ইং মোতাবেক।',
+            'EX LEAVE': 'ছুটি শেষে যথসময়ে হাজির হইল নৌ নং - তাং - ইং উল্লেখ্য।',
+            'TO LEAVE': '২০২৪ সালের ৩০ দিনের সুবিধাজনক ছুটি ও ০৬ দিনের যাতাযাত সময় সহ ভ্রমন পত্র মঞ্জুর করা হইল।',
+            'TO RL': '১লা জুলাই ২০২১ সাল হইতে ৩০ জুন ২০২৪ সাল চক্রের ১৫ দিনের বিনোদন মূলক ছুটি মঞ্জুর করা হইল।',
+            'TO TY': 'কমান্ডার সাবমেরিন পত্র নং - অস্থায়ী বদলি করা হইল।',
+            'EX TY': 'আস্থায়ী কর্তব্য শেষে বা নৌ জা - হইতে হাজির হইল।',
+            'TO ADMIT': 'পতেঙ্গা / সিএমএইস বার্তা ডি টি জি চিকিৎসার জন্য ভর্তি হইল।',
+            'EX ADMIT': 'চিকিৎসা শেষে বা নৌ জা পতেঙ্গা / সিএমএইস হইতে হাজির হইল।',
+            'TO RUN': 'আনুপস্থিত চিহ্নত করা হইল',
+            'EX RUN': 'আনুপস্থিত হইতে হাজির হইল',
+            'TO MLR': 'রসদ ভাতা বাতিল করা হইল',
+            'EX MLR': 'রসদ ভাতা মঞ্জুর করা হইল।',
+            'TO VICT': 'ভিক্টিম ছুটি মঞ্জুর করা হইল',
+            'EX VICT': 'ভিক্টিম ছুটি সমাপ্ত হইয়া হাজির হইল'
+        };
 
-<script>
-    function submitDataAndNavigate() {
-
-
-        
-
-
-        // Get data from input fields
-        var inputData = [];
-        for (var i = 1; i <= 12; i++) {
-            inputData.push(document.getElementById("input" + i).value);
+        function initializeForm() {
+            const divisions = JSON.parse(localStorage.getItem('divisions')) || defaultDivisions;
+            const departments = JSON.parse(localStorage.getItem('departments')) || defaultDepartments;
+            populateSelect('divisionSelect', divisions);
+            populateSelect('departmentSelect', departments);
         }
 
-        // Save data to local storage
-        var allData = JSON.parse(localStorage.getItem("allData")) || [];
-        allData.push(inputData);
-        localStorage.setItem("allData", JSON.stringify(allData));
-
-        // Clear input fields
-        for (var i = 1; i <= 12; i++) {
-            document.getElementById("input" + i).value = "";
+        function populateSelect(selectId, options) {
+            const select = document.getElementById(selectId);
+            const currentValue = select.value;
+            select.innerHTML = '<option value="">Select</option>';
+            options.forEach(option => {
+                const opt = document.createElement('option');
+                opt.value = option;
+                opt.textContent = option;
+                select.appendChild(opt);
+            });
+            select.value = currentValue;
         }
 
-        // Navigate to the second page
-        window.location.href = "shnshipscompany.html";
-    }
+        function updateGXTextArea() {
+            const gxType = document.getElementById('gxTypeSelect').value;
+            const textArea = document.getElementById('gxTypeTextArea');
+            textArea.value = gxTemplates[gxType] || '';
+        }
 
+        function openDivisionModal() {
+            document.getElementById('divisionModal').classList.add('show');
+            document.getElementById('divisionInput').focus();
+        }
 
+        function closeDivisionModal() {
+            document.getElementById('divisionModal').classList.remove('show');
+            document.getElementById('divisionInput').value = '';
+        }
 
+        function addDivision() {
+            const divisionName = document.getElementById('divisionInput').value.trim();
+            if (!divisionName) {
+                showAlert('Please enter division name', 'error');
+                return;
+            }
+            let divisions = JSON.parse(localStorage.getItem('divisions')) || defaultDivisions;
+            if (!divisions.includes(divisionName)) {
+                divisions.push(divisionName);
+                localStorage.setItem('divisions', JSON.stringify(divisions));
+                populateSelect('divisionSelect', divisions);
+                showAlert('Division added', 'success');
+            } else {
+                showAlert('Division exists', 'error');
+            }
+            closeDivisionModal();
+        }
 
+        function openDepartmentModal() {
+            document.getElementById('departmentModal').classList.add('show');
+            document.getElementById('departmentInput').focus();
+        }
 
-  // Function to save data to local storage
-//   function saveData() {
-//             var input2Value = document.getElementById("input2").value;
-//             var input3Value = document.getElementById("input3").value;
-//             var input4Value = document.getElementById("input4").value;
-//             var input5Value = document.getElementById("gxdate").value;
-//             var input6Value = document.getElementById("gxtime").value;
-//             var input7Value = document.getElementById("gxtext").value;
+        function closeDepartmentModal() {
+            document.getElementById('departmentModal').classList.remove('show');
+            document.getElementById('departmentInput').value = '';
+        }
 
-//             // Retrieve existing table data from local storage
-//             var existingTableData = JSON.parse(localStorage.getItem("gxData")) || [];
+        function addDepartment() {
+            const departmentName = document.getElementById('departmentInput').value.trim();
+            if (!departmentName) {
+                showAlert('Please enter department name', 'error');
+                return;
+            }
+            let departments = JSON.parse(localStorage.getItem('departments')) || defaultDepartments;
+            if (!departments.includes(departmentName)) {
+                departments.push(departmentName);
+                localStorage.setItem('departments', JSON.stringify(departments));
+                populateSelect('departmentSelect', departments);
+                showAlert('Department added', 'success');
+            } else {
+                showAlert('Department exists', 'error');
+            }
+            closeDepartmentModal();
+        }
 
-//             // Add new row data to the array
-//             existingTableData.push({
-//                 input2: input2Value,
-//                 input3: input3Value,
-//                 input4: input4Value,
-//                 gxdate: input5Value,
-//                 gxtime: input6Value,
-//                 gxtext: input7Value
-//             });
+        function searchData() {
+            const officialNo = document.getElementById('searchOfficialNo').value.trim();
+            if (!officialNo) {
+                showAlert('Enter official number', 'error');
+                return;
+            }
+            const allData = JSON.parse(localStorage.getItem('gxFormData')) || [];
+            const foundData = allData.find(item => item.officialNumber === officialNo);
+            if (foundData) {
+                populateFormWithData(foundData);
+                showAlert('Data loaded', 'success');
+            } else {
+                showAlert('No data found', 'error');
+            }
+        }
 
-//             // Save the updated array back to local storage
-//             localStorage.setItem("gxData", JSON.stringify(existingTableData));
+        function populateFormWithData(data) {
+            document.getElementById('gxNumber').value = data.gxNumber || '';
+            document.getElementById('gxDate').value = data.gxDate || '';
+            document.getElementById('govtText').value = data.govtText || '';
+            document.getElementById('wefTime').value = data.wefTime || '';
+            document.getElementById('wefDate').value = data.wefDate || '';
+            document.getElementById('divisionSelect').value = data.division || '';
+            document.getElementById('departmentSelect').value = data.department || '';
+            document.getElementById('gxTypeSelect').value = data.gxType || '';
+            document.getElementById('gxTypeTextArea').value = data.gxTypeTextArea || '';
+            document.getElementById('partII').value = data.partII || '';
+            document.getElementById('gcb').value = data.gcb || '';
+            document.getElementById('idCardNo').value = data.idCardNo || '';
+            document.getElementById('dateJoiningShip').value = data.dateJoiningShip || '';
+            document.getElementById('bloodGroup').value = data.bloodGroup || '';
+            document.getElementById('mobileNumber').value = data.mobileNumber || '';
+            document.getElementById('mlrVic').value = data.mlrVic || '';
+            document.getElementById('remarks').value = data.remarks || '';
+        }
 
-//             // Optionally, you can reload the table or perform any other actions here
-//             // loadTable();
-//         }
+        function clearForm() {
+            document.getElementById('gxForm').reset();
+            document.getElementById('searchOfficialNo').value = '';
+            document.getElementById('gxTypeTextArea').value = '';
+            showAlert('Form cleared', 'success');
+        }
 
+        function submitForm() {
+            const officialNo = document.getElementById('govtText').value.split('\n')[0] || '';
+            
+            const formData = {
+                gxNumber: document.getElementById('gxNumber').value,
+                gxDate: document.getElementById('gxDate').value,
+                officialNumber: officialNo,
+                govtText: document.getElementById('govtText').value,
+                wefTime: document.getElementById('wefTime').value,
+                wefDate: document.getElementById('wefDate').value,
+                division: document.getElementById('divisionSelect').value,
+                department: document.getElementById('departmentSelect').value,
+                gxType: document.getElementById('gxTypeSelect').value,
+                gxTypeTextArea: document.getElementById('gxTypeTextArea').value,
+                partII: document.getElementById('partII').value,
+                gcb: document.getElementById('gcb').value,
+                idCardNo: document.getElementById('idCardNo').value,
+                dateJoiningShip: document.getElementById('dateJoiningShip').value,
+                bloodGroup: document.getElementById('bloodGroup').value,
+                mobileNumber: document.getElementById('mobileNumber').value,
+                mlrVic: document.getElementById('mlrVic').value,
+                remarks: document.getElementById('remarks').value,
+                timestamp: new Date().toISOString()
+            };
 
+            if (!formData.gxNumber || !formData.wefDate) {
+                showAlert('Fill required fields', 'error');
+                return;
+            }
 
-  
-  // Function to load data from local storage and populate the table
-//   function loadTable() {
-//     var tableBody = document.getElementById("tableBody");
-//     tableBody.innerHTML = ""; // Clear existing rows
+            let allData = JSON.parse(localStorage.getItem('gxFormData')) || [];
+            const existingIndex = allData.findIndex(item => item.gxNumber === formData.gxNumber);
+            
+            if (existingIndex !== -1) {
+                allData[existingIndex] = formData;
+            } else {
+                allData.push(formData);
+            }
 
-//     var tableData = JSON.parse(localStorage.getItem("gxData")) || [];
+            localStorage.setItem('gxFormData', JSON.stringify(allData));
+            console.log('Saved:', JSON.stringify(formData, null, 2));
+            showAlert('Form saved!', 'success');
+            clearForm();
+        }
 
-//     // Populate the table with data
-//     tableData.forEach(function(row) {
-//       var newRow = tableBody.insertRow();
-//       newRow.insertCell(0).innerHTML = row[0]; // Accessing array elements by index
-//       newRow.insertCell(1).innerHTML = row[1];
-//       newRow.insertCell(2).innerHTML = row[2];
-//       newRow.insertCell(3).innerHTML = row[3];
-//       newRow.insertCell(4).innerHTML = row[4];
-//       newRow.insertCell(5).innerHTML = row[5];
-//     });
-//   }
+        function showAlert(message, type) {
+            const alertContainer = document.getElementById('alertContainer');
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type}`;
+            alertDiv.textContent = message;
+            alertContainer.appendChild(alertDiv);
+            setTimeout(() => alertDiv.remove(), 3000);
+        }
 
+        window.onclick = function(event) {
+            const divisionModal = document.getElementById('divisionModal');
+            const departmentModal = document.getElementById('departmentModal');
+            if (event.target === divisionModal) closeDivisionModal();
+            if (event.target === departmentModal) closeDepartmentModal();
+        }
 
-
-
-
-
-   // Function to search data based on the first input value
-   function searchData() {
-    var input1Value = document.getElementById("input2").value;
-    var tableData = JSON.parse(localStorage.getItem("allData")) || [];
-
-    // Find the first row with the matching input1 value
-    var matchingRow = tableData.find(function(row) {
-      return row[1] == input1Value; // Accessing array elements by index
-    });
-
-    // Display all values from the matching row in the input fields
-    if (matchingRow) {
-      document.getElementById("input2").value = matchingRow[1];
-      document.getElementById("input3").value = matchingRow[2];
-      document.getElementById("input4").value = matchingRow[3];
-      document.getElementById("input5").value = matchingRow[4];
-      document.getElementById("input6").value = matchingRow[5];
-      document.getElementById("input7").value = matchingRow[6];
-      document.getElementById("input8").value = matchingRow[7];
-      document.getElementById("input9").value = matchingRow[8];
-      document.getElementById("input10").value = matchingRow[9];
-      document.getElementById("input11").value = matchingRow[10];
-      document.getElementById("input12").value = matchingRow[11];
-    } else {
-      // Handle the case when no matching row is found
-      alert("No matching data found for input1: " + input1Value);
-    }
-  }
-
-  // Call the loadTable function to load data when the page is loaded
-//   loadTable();
-
-
-
-
-function updateTextArea() {
-      // Get the selected option
-      const selectElement = document.getElementById('selectOption');
-      const selectedOption = selectElement.value;
-
-      // Get the text area element
-      const textAreaElement = document.getElementById('gxtext');
-
-      // Update the text area based on the selected option
-      switch (selectedOption) {
-        case 'TO DRAF':
-          textAreaElement.value = ' ড্রাফটিং আথরিটি পত্র নং ২৩,০২,২৬২৬,১২৮ তাং  ইং মোতাবেক বাঃ নৌঃ জাঃ বদলি করা হইল। ০২। পেকুয়া হইতে চট্টগ্রাম / ঢাকা/ খুলনা পর্য়ন্ত বে-সরকারি য়ানবাহনে ভ্রমন করিল। ০৩। আগ্রিম ভাতা প্রদান করা হইল। ০৪। ০২ দিনের ভ্রমন সময় প্রাপ্য।  ';
-          break;
-        case 'EX DRAF':
-          textAreaElement.value = ' বা নৌ জা - হইতে বদলি আসিল। বা নৌ জা ে- নৌ নং  - তাং - ইং মোতাবেক।';
-          break;
-        case 'EX LEAVE':
-          textAreaElement.value = 'ছুটি শেষে যথসময়ে হাজির হইল নৌ নং  - তাং -  ইং উল্লেখ্য। ০২। সঃ সংখ্যাঃ - রসদ ভাতা মঞ্জুর করা হইল।';
-          break;
-          case 'TO LEAVE':
-          textAreaElement.value = '২০২৪ সালের ৩০ ‍দিনের সুবিধাজনক ছুটি ও ০৬ দিনের য়াতাযাত সময় সহ ভ্রমন পত্র ব্যাতিত মঞ্জুর করা হইল। রেলস্টেসন - । ০২।সঃ সংখ্যা - - এর রসদ ভাতা বাতিল করা হইল।';
-          break;
-          case 'TO RL':
-          textAreaElement.value = '১লা জুলাই ২০২১ সাল হইতে ৩০ জুন ২০২৪ সাল চক্রের ১৫ ‍দিনের বিনোদন মূলক ছুটি ও০৬দিনের য়াতায়ত সময় সহ ভ্রমন পত্র ব্যাতিত মঞ্জুর করা হইল। রেলস্টেসন -। ০২। জেএসআই ৮/৮০ এবং ১/১৬ মোতাবেক বিনোদন মূলক ভাতা প্রাপ্য। ০৩। গোত বিনোদন মূলক ছুট  ভোগের তাং --- ইং। ০৪। রসদ ভাতা বাতিল করা হইল।   ';
-          break;
-          case 'TO TY':
-          textAreaElement.value = 'কমান্ডার সাবমেরিন পত্র নং ------ তাং --- ইং /  ড্রাফটিং আথরিটি পত্র নং ২৩,০২,২৬২৬,১২৮ তাং  ইং মোতাবেক বাঃ নৌঃ জাঃ  - অস্থায়ী বদলি করা হইল। ০২। পেকুয়া হইতে চট্টগ্রাম / ঢাকা/ খুলনা পর্য়ন্ত বে-সরকারি য়ানবাহনে ভ্রমন করিল। ০৩। আগ্রিম ভাতা প্রদান করা হইল। ০৪। ০২ দিনের ভ্রমন সময় প্রাপ্য।';
-          break;
-          case 'EX TY':
-          textAreaElement.value = 'আস্থায়ী কর্তব্য শেষে বা নৌ জা - হইতে হাজির হইল।  বা নৌ জা - নৌ নং - তাং - ইং মোতাবেক। ০২। সঃ সংখ্যাঃ - রসদ ভাতা মঞ্জুর করা হইল।';
-          break;
-          case 'TO ADMIT':
-          textAreaElement.value = ' পতেঙ্গা / সিএমএইস বার্তা ডি টি জি -- মাস  সাল মোতাবেক চিকিৎসার জন্য ভর্তি হইল। ০২। রসদ ভাতা বাতিল করা হইল।';
-          break;
-          case 'EX ADMIT':
-          textAreaElement.value = 'চিকিৎসা শেষে বা নৌ জা পতেঙ্গা / সিএমএইস হইতে হাজির হইল। পতেঙ্গা / সিএমএইস বার্তা ডি টি জি -- মাস  সাল মোতাবেক। ';
-          break;
-          case 'TO RUN':
-          textAreaElement.value = ' আনুপস্থিত চিহ্নত করা হইল';
-          break;
-          case 'EX RUN':
-          textAreaElement.value = 'আনুপস্থিত হইতে হাজির হইল';
-          break;
-          case 'TO MLR':
-          textAreaElement.value = 'রসদ ভাতা বাতিল করা হইল';
-          break;
-          case 'EX MLR':
-          textAreaElement.value = 'রসদ ভাতা মঞ্জুর করা হইল।';
-          break;
-          
-        // Add cases for other options as needed
-        default:
-          textAreaElement.value = 'Unknown option selected. Add your custom text here.';
-      }
-
-
-
-      
-
-      
-    }
-
-
-
-</script>
-
-
-    
-
+        document.addEventListener('DOMContentLoaded', initializeForm);
+    </script>
 </body>
 </html>
